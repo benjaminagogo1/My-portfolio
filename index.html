@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benjamin Agogo — Backend Engineer</title>
+<meta name="description" content="Benjamin Agogo — backend & full-stack engineer building AI-driven agriculture and health technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #12160F;
+    --surface: #1A2015;
+    --surface-2: #1F261A;
+    --line: #2C3524;
+    --text: #EDEEE3;
+    --text-muted: #949C86;
+    --accent: #9CC06A;
+    --accent-dim: #7A9955;
+    --accent-2: #D9A441;
+    --radius: 3px;
+    --maxw: 980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--accent-dim); color:#12160F; }
+
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ color:var(--accent-2); }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent-2);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--text-muted);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px;
+    height:1px;
+    background:var(--accent-dim);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(18,22,15,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:16px;
+    padding-bottom:16px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--text);
+    letter-spacing:0.02em;
+  }
+  .brand span{ color:var(--accent); }
+  .navlinks{
+    display:flex;
+    gap:28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .navlinks a{ color:var(--text-muted); }
+  .navlinks a:hover{ color:var(--accent-2); }
+  @media (max-width:640px){
+    .navlinks{ gap:16px; }
+    .navlinks .hide-mobile{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 40px;
+  }
+  .hero .eyebrow{ margin-bottom:28px; }
+  h1.name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(42px, 8vw, 78px);
+    line-height:1.02;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  h1.name em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--accent);
+  }
+  .role-line{
+    font-size:18px;
+    color:var(--text-muted);
+    max-width:640px;
+    margin:0 0 40px;
+  }
+  .role-line strong{ color:var(--text); font-weight:600; }
+
+  /* signature waveform */
+  .signature{
+    width:100%;
+    max-width:720px;
+    height:auto;
+    display:block;
+    margin:8px 0 40px;
+  }
+  .signature path{
+    fill:none;
+    stroke:var(--accent);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    animation:draw 2.4s cubic-bezier(.4,0,.2,1) forwards 0.3s;
+  }
+  .signature path.dim{ stroke:var(--accent-2); opacity:0.55; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-copy{
+    max-width:600px;
+    color:var(--text-muted);
+    font-size:16.5px;
+    margin-bottom:40px;
+  }
+  .hero-copy strong{ color:var(--text); font-weight:600; }
+
+  .cta-row{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#12160F;
+    border:1px solid var(--accent);
+  }
+  .btn-primary:hover{
+    background:var(--accent-2);
+    border-color:var(--accent-2);
+    color:#12160F;
+    transform:translateY(-1px);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--line);
+  }
+  .btn-ghost:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+    transform:translateY(-1px);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:64px 0;
+    border-top:1px solid var(--line);
+  }
+  section h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(26px, 4vw, 34px);
+    margin:14px 0 22px;
+    letter-spacing:-0.005em;
+  }
+  .section-lead{
+    color:var(--text-muted);
+    max-width:640px;
+    margin-bottom:32px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:48px;
+  }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; gap:28px; } }
+  .about-text p{ margin:0 0 16px; color:var(--text-muted); }
+  .about-text strong{ color:var(--text); }
+  .fact-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .fact-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:13px 16px;
+    font-size:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .fact-list li:last-child{ border-bottom:none; }
+  .fact-list .k{ color:var(--text-muted); font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em; }
+  .fact-list .v{ color:var(--text); text-align:right; }
+
+  /* ---------- FLAGSHIP PROJECT ---------- */
+  .flagship{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .flagship::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:2px;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+  .flagship-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .flagship h3{
+    font-family:'Fraunces', serif;
+    font-size:30px;
+    font-weight:600;
+    margin:6px 0;
+  }
+  .status-pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--accent);
+    border:1px solid var(--accent-dim);
+    border-radius:20px;
+    padding:5px 12px;
+    white-space:nowrap;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .status-pill::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--accent);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .flagship-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--text-muted);
+    margin-bottom:18px;
+  }
+  .flagship p.desc{ color:var(--text-muted); max-width:640px; margin-bottom:22px; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text);
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:20px;
+  }
+  .tag.building{
+    border-style:dashed;
+    color:var(--accent-2);
+    border-color:var(--accent-2);
+  }
+
+  /* ---------- PROJECT GRID ---------- */
+  .project-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+  }
+  @media (max-width:700px){ .project-grid{ grid-template-columns:1fr; } }
+  .project-card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:26px;
+    background:var(--surface);
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .project-card:hover{ border-color:var(--accent-dim); transform:translateY(-2px); }
+  .project-card .pdate{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-muted); margin-bottom:8px; }
+  .project-card h4{ font-family:'Fraunces', serif; font-size:21px; font-weight:600; margin:0 0 10px; }
+  .project-card p{ color:var(--text-muted); font-size:14.5px; margin:0 0 16px; }
+  .project-card a.repo-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .project-card a.repo-link .arrow{ transition:transform 0.15s ease; }
+  .project-card a.repo-link:hover .arrow{ transform:translateX(3px); }
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{ display:grid; grid-template-columns:1fr 1fr; gap:28px 40px; }
+  @media (max-width:700px){ .skill-groups{ grid-template-columns:1fr; } }
+  .skill-group .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--text-muted);
+    margin-bottom:10px;
+  }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+
+  /* ---------- TIMELINE (fellowship / education) ---------- */
+  .tl-item{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:20px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tl-item:last-child{ border-bottom:none; }
+  .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--text-muted); }
+  .tl-body h4{ margin:0 0 4px; font-family:'Fraunces', serif; font-size:19px; font-weight:600; }
+  .tl-body .org{ color:var(--accent); font-size:14px; margin-bottom:8px; }
+  .tl-body p{ color:var(--text-muted); font-size:14.5px; margin:0; }
+  @media (max-width:600px){
+    .tl-item{ grid-template-columns:1fr; gap:6px; }
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:56px 0 40px;
+  }
+  .contact-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .contact-cta h2{ margin-top:0; }
+  .contact-links{ display:flex; flex-direction:column; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:14.5px; }
+  .contact-links a{ color:var(--text); }
+  .contact-links a:hover{ color:var(--accent); }
+  .foot-note{
+    color:var(--text-muted);
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    border-top:1px solid var(--line);
+    padding-top:20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">BENJAMIN<span>.</span>AGOGO</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#skills" class="hide-mobile">Skills</a>
+      <a href="#background" class="hide-mobile">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap" style="border-top:none;">
+    <div class="eyebrow">Makurdi, Benue State, Nigeria — Open to backend / full-stack roles</div>
+    <h1 class="name">Otete Benjamin<br><em>Agogo</em></h1>
+    <p class="role-line">
+      <strong>Backend-focused software engineer</strong> building AI-driven tools for agriculture and healthcare —
+      with Python, FastAPI, and Go, and a clinical background most engineers don't have.
+    </p>
+
+    <svg class="signature" viewBox="0 0 720 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,45 L110,45 L130,10 L150,80 L170,45 L200,45 L215,25 L230,45 L720,45" />
+      <path class="dim" d="M230,45 C 320,45 340,20 400,20 C 460,20 470,45 530,45 C 590,45 610,15 670,15 C 690,15 700,25 720,25" />
+    </svg>
+
+    <p class="hero-copy">
+      I trained as a nurse before moving into software — so I bring <strong>practitioner-level insight
+      into real-world workflows</strong> alongside a growing backend engineering skill set. Right now I'm
+      full-stack on <strong>Agro-Shield</strong>, a digital agriculture platform built for the Idoma Centenary
+      Hackathon, and deepening my systems knowledge through an intensive AI/software fellowship.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/etoosammy01-oss/Agro-Shield" target="_blank" rel="noopener">View Agro-Shield →</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </section>
+  <section id="work" class="wrap reveal">
+    <div class="eyebrow">Flagship build</div>
+    <h2>Agro-Shield</h2>
+
+    <div class="flagship">
+      <div class="flagship-top">
+        <div>
+          <h3>Agro-Shield</h3>
+        </div>
+        <span class="status-pill">MVP live</span>
+      </div>
+      <div class="flagship-meta">Team project · Idoma Centenary Hackathon · 2026 · 4-person team · Full-stack contributor</div>
+      <p class="desc">
+        An intelligent digital agriculture platform that gives farmers farm management, AI-powered crop analysis,
+        market access, and agricultural knowledge in one place. I built frontend and backend features across the
+        stack, working with teammates on system design and feature scope to ship a working MVP under competition
+        deadlines.
+      </p>
+      <div class="tag-row">
+        <span class="tag">Go</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Team of 4</span>
+      </div>
+      <a class="btn btn-ghost" href="https://github.com/etoosammy01-oss/Agro-Shield" target="_blank" rel="noopener">Repository ↗</a>
+    </div>
+  </section>
+  <section class="wrap reveal">
+    <div class="eyebrow">Other projects</div>
+    <h2>Smaller builds, same habits</h2>
+    <p class="section-lead">Independent projects I used to learn backend fundamentals and API design.</p>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="pdate">2025</div>
+        <h4>FastAPI Learning API</h4>
+        <p>RESTful endpoints built from scratch — routing, HTTP methods, and request/response handling — as a foundation for asynchronous web services.</p>
+      </div>
+      <div class="project-card">
+        <div class="pdate">2026</div>
+        <h4>Personal Finance Tracking System</h4>
+        <p>A Python command-line tool for logging, viewing, and deleting expenses, with input validation and error handling.</p>
+        <a class="repo-link" href="https://github.com/benjaminagogo1/Personal-finance-tracking-system" target="_blank" rel="noopener">Repository <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+  <section id="skills" class="wrap reveal">
+    <div class="eyebrow">Skills</div>
+    <h2>What I build with</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <div class="k">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Go</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="k">Backend &amp; APIs</div>
+        <div class="skill-tags">
+          <span class="tag">FastAPI</span><span class="tag">Uvicorn</span><span class="tag">REST API design</span><span class="tag">HTTP fundamentals</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="k">Engineering practices</div>
+        <div class="skill-tags">
+          <span class="tag">OOP</span><span class="tag">Modular design</span><span class="tag">Input validation</span><span class="tag">Error handling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="k">Tools &amp; platforms</div>
+        <div class="skill-tags">
+          <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">VS Code</span>
+        </div>
+      </div>
+      <div class="skill-group" style="grid-column:1 / -1;">
+        <div class="k">Currently building toward</div>
+        <div class="skill-tags">
+          <span class="tag building">Databases</span><span class="tag building">System design</span><span class="tag building">Automated testing</span><span class="tag building">Applied machine learning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="background" class="wrap reveal">
+    <div class="eyebrow">Summary</div>
+    <h2>From patient care to production code</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a backend engineer in training, working toward AI-driven products in <strong>HealthTech</strong>
+          and <strong>AgriTech</strong>. My hands-on track record is in Python, FastAPI, and Go — building
+          REST APIs, command-line tools, and responsive interfaces with clean, modular, object-oriented code,
+          backed by solid Git/GitHub and Docker fundamentals.
+        </p>
+        <p>
+          My Bachelor of Science in Nursing isn't a detour — it's where my engineering instincts come from.
+          Years of clinical decision-making taught me to reason carefully under uncertainty, document precisely,
+          and design around how people actually work. That's the lens I bring to every system I build.
+        </p>
+        <p>
+          I'm currently a <strong>Software Engineering &amp; AI Learning Fellow</strong> with Talent Nation
+          (formerly Learn2Earn), deepening my skills in databases, system design, testing, and machine learning
+          through intensive, project-based work.
+        </p>
+      </div>
+      <ul class="fact-list mono">
+        <li><span class="k">Location</span><span class="v">Makurdi, Nigeria</span></li>
+        <li><span class="k">Focus</span><span class="v">Backend &amp; AI</span></li>
+        <li><span class="k">Currently</span><span class="v">Agro-Shield MVP</span></li>
+        <li><span class="k">Fellowship</span><span class="v">Talent Nation</span></li>
+        <li><span class="k">Education</span><span class="v">B.Sc. Nursing</span></li>
+        <li><span class="k">Email</span><span class="v">benjaminagogo1@gmail.com</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="wrap reveal">
+    <div class="eyebrow">Fellowship &amp; education</div>
+    <h2>How I got here</h2>
+    <div>
+      <div class="tl-item">
+        <div class="tl-date mono">2025 — Present</div>
+        <div class="tl-body">
+          <h4>Software Engineering &amp; AI Learning Fellow</h4>
+          <div class="org">Talent Nation Fellowship (formerly Learn2Earn)</div>
+          <p>An intensive, project-based fellowship covering backend development, Docker, Git, FastAPI, and machine learning — progressing from fundamentals toward production-quality engineering.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date mono">Graduate</div>
+        <div class="tl-body">
+          <h4>B.Sc. Nursing Science</h4>
+          <div class="org">University</div>
+          <p>Built strong analytical thinking, problem-solving, and evidence-based decision-making skills that carry directly into software engineering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="wrap">
+  <div class="contact-grid">
+    <div class="contact-cta">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's build something.</h2>
+      <p class="section-lead" style="margin-bottom:0;">
+        Open to entry-level backend and full-stack roles, especially in HealthTech and AgriTech.
+      </p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:benjaminagogo1@gmail.com">benjaminagogo1@gmail.com</a>
+      <a href="tel:+2349060561633">+234 906 056 1633</a>
+      <a href="https://github.com/benjaminagogo1" target="_blank" rel="noopener">github.com/benjaminagogo1</a>
+      <a href="https://linkedin.com/in/benjamin-agogo" target="_blank" rel="noopener">linkedin.com/in/benjamin-agogo</a>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 Benjamin Agogo — built with Python, FastAPI, Go, and one careful eye on the patient chart.</div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
