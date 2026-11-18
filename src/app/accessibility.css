@@ -1,0 +1,235 @@
+/* Reading preferences augment the default accessible design. */
+html[data-text-size="large"] {
+  font-size: 120%;
+}
+html[data-contrast="high"] {
+  --background: #ffffff;
+  --foreground: #101a13;
+  --primary: #183c29;
+  --muted-foreground: #344233;
+  --border: #73816c;
+  --secondary: #eef3e8;
+  --ring: #0f4528;
+}
+html[data-contrast="high"]
+  :is(
+    .hero-bottom,
+    .expertise-status,
+    .project-meta,
+    .project-technologies,
+    .project-status,
+    .footer-bottom,
+    .access-note,
+    .preview-caption,
+    .exchange-core > small,
+    .facility > small,
+    .exchange-properties
+  ) {
+  color: var(--muted-foreground);
+}
+html[data-contrast="high"]
+  :is(
+    .expertise-grid,
+    .expertise-item,
+    .facility,
+    .core-icon,
+    .browser-preview,
+    .field-node
+  ) {
+  border-color: #73816c;
+}
+html[data-contrast="high"] .journey-section {
+  background: #153822;
+}
+html[data-contrast="high"]
+  .journey-section
+  :is(.section-label, .journey-point, .journey-applications > span) {
+  color: #e0efcd;
+}
+html[data-motion="reduced"] {
+  scroll-behavior: auto;
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+html[data-motion="reduced"] .browser-preview,
+html[data-motion="reduced"] .project-preview-link:hover .browser-preview,
+html[data-motion="reduced"] .field-node:hover {
+  transform: none;
+}
+
+.display-control {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--primary);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+.no-script-nav {
+  display: none;
+}
+.display-control:hover {
+  background: var(--secondary);
+}
+.accessibility-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding-top: 10px;
+  padding-right: 45px;
+  letter-spacing: -0.3px;
+}
+.accessibility-introduction {
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  margin-top: 16px;
+}
+.accessibility-options {
+  margin-top: 30px;
+  border-top: 1px solid var(--border);
+}
+.accessibility-option {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: space-between;
+  padding-block: 22px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.accessibility-option-name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.accessibility-option-help {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+  margin-top: 6px;
+}
+.accessibility-option input {
+  accent-color: var(--primary);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.accessibility-option:has(input:focus-visible) {
+  outline: 2px solid var(--ring);
+  outline-offset: 5px;
+}
+.accessibility-save-note {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+.accessibility-reset {
+  margin-top: 22px;
+}
+.accessibility-keyboard-note {
+  margin-top: 24px;
+  padding-bottom: 20px;
+  font-size: 0.6875rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+/* Larger targets retain the existing spacing and visual character. */
+:is(
+  .brand,
+  .mobile-menu,
+  .header-contact,
+  .desktop-nav a,
+  .field-node,
+  .expertise-toggle,
+  .inline-link,
+  .text-cta,
+  .project-links a,
+  .footer-socials a,
+  .footer-bottom a,
+  .case-back
+) {
+  min-height: 44px;
+}
+.mobile-menu {
+  min-width: 44px;
+  flex-shrink: 0;
+}
+.expertise-toggle {
+  padding-block: 4px;
+}
+.footer-socials a {
+  padding-inline: 2px;
+}
+.footer-socials {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.journey-section :focus-visible {
+  outline-color: #e0efcd;
+}
+.skip-link {
+  top: 12px;
+  transform: translateY(-180%);
+  clip-path: inset(50%);
+}
+.skip-link:focus {
+  transform: none;
+  clip-path: none;
+}
+main:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    gap: 8px;
+  }
+  .header-contact {
+    margin-left: auto;
+  }
+  .display-control {
+    width: 44px;
+  }
+}
+@media (max-width: 800px) {
+  .no-script-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    padding-block: 12px;
+    font-size: 0.8125rem;
+  }
+  .no-script-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+@media (max-width: 480px) {
+  .brand-name {
+    display: none;
+  }
+}
+@media (forced-colors: active) {
+  .display-control,
+  .accessibility-option {
+    border-color: CanvasText;
+  }
+  .accessibility-option input {
+    accent-color: auto;
+  }
+}

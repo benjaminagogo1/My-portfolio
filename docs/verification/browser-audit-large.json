@@ -1,0 +1,42 @@
+[
+  {
+    "route": "/",
+    "performance": {
+      "domContentLoadedMs": 340,
+      "firstContentfulPaintMs": 1636,
+      "largestContentfulPaintMs": 1636,
+      "externalResources": []
+    },
+    "violations": []
+  },
+  {
+    "route": "/projects/nurse-ng/",
+    "performance": {
+      "domContentLoadedMs": 98,
+      "firstContentfulPaintMs": 356,
+      "largestContentfulPaintMs": 356,
+      "externalResources": []
+    },
+    "violations": []
+  },
+  {
+    "route": "/projects/hmsi-api/",
+    "performance": {
+      "domContentLoadedMs": 103,
+      "firstContentfulPaintMs": 372,
+      "largestContentfulPaintMs": 372,
+      "externalResources": []
+    },
+    "violations": []
+  },
+  {
+    "route": "/404.html",
+    "performance": {
+      "domContentLoadedMs": 142,
+      "firstContentfulPaintMs": 240,
+      "largestContentfulPaintMs": 240,
+      "externalResources": []
+    },
+    "violations": []
+  }
+]
