@@ -81,7 +81,7 @@ em {
   padding-block: 104px;
 }
 .eyebrow {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1.8px;
   color: var(--primary);
@@ -169,7 +169,7 @@ em {
 }
 .brand-name > span {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
   font-weight: 400;
   margin-top: 2px;
@@ -201,7 +201,7 @@ em {
   background: var(--primary);
 }
 .header-contact {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   gap: 14px;
 }
 .mobile-menu {
@@ -226,7 +226,7 @@ em {
   letter-spacing: -0.5px;
 }
 .mobile-nav a > span {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 .mobile-nav a > svg {
@@ -276,9 +276,40 @@ em {
   margin-bottom: 31px;
 }
 .hero-introduction {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-size: 0.8125rem;
   color: var(--muted-foreground);
-  margin-bottom: 20px;
+  margin-bottom: 26px;
+}
+.hero-portrait {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--background);
+  outline: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 10%);
+}
+.hero-profile-copy {
+  min-width: 0;
+}
+.hero-profile-copy p {
+  line-height: 1.6;
+  color: var(--foreground);
+}
+.hero-profile-copy strong {
+  color: var(--primary);
+  font-weight: 500;
+}
+.hero-profile-copy > span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
 }
 .hero h1 {
   font-size: clamp(3.25rem, 5.55vw, 4.8125rem);
@@ -324,7 +355,7 @@ em {
   gap: 13px;
   margin-top: 43px;
   color: var(--muted-foreground);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   line-height: 1.65;
 }
 .hero-footnote strong {
@@ -345,7 +376,7 @@ em {
   border-top: 1px solid var(--border);
   margin-top: 49px;
   padding-top: 22px;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   letter-spacing: 1.3px;
 }
 .hero-bottom a {
@@ -369,7 +400,7 @@ em {
   color: #65745f;
   padding-inline: 14px;
   font-family: monospace;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   letter-spacing: 1.2px;
 }
 .visual-topline > span {
@@ -401,7 +432,7 @@ em {
   background: rgb(249 250 246 / 94%);
   border-radius: 5px;
   color: #556650;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   box-shadow: 0 3px 16px rgb(34 65 25 / 4%);
   transition:
     background 0.2s,
@@ -437,7 +468,7 @@ em {
   position: absolute;
   top: 51%;
   font-family: monospace;
-  font-size: 0.4375rem;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   color: #71816b;
 }
@@ -459,18 +490,18 @@ em {
 .caption-index {
   font-family: monospace;
   color: #60745a;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   letter-spacing: 1px;
   white-space: nowrap;
 }
 .visual-caption strong {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
 }
 .visual-caption p {
   margin-top: 4px;
   color: var(--muted-foreground);
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
 }
 .caption-plus {
   margin-left: auto;
@@ -479,7 +510,7 @@ em {
   color: #68835e;
 }
 .visual-hint {
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
   margin: 9px 14px 0;
 }
@@ -514,7 +545,7 @@ em {
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   letter-spacing: 1.3px;
   color: var(--muted-foreground);
   margin-bottom: 40px;
@@ -546,6 +577,9 @@ h2 em {
   line-height: 1.8;
   padding-bottom: 5px;
 }
+.about-section {
+  padding-block: 72px;
+}
 .about-layout {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -570,39 +604,7 @@ h2 em {
 .about-copy .inline-link {
   margin-top: 9px;
   color: var(--primary);
-  font-size: 0.6875rem;
-}
-.about-symbol {
-  position: relative;
-  width: 180px;
-  height: 128px;
-  margin-top: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.about-symbol > span {
-  position: absolute;
-  width: 84px;
-  height: 84px;
-  border: 1px solid #a5b69a;
-  border-radius: 50%;
-}
-.about-symbol > span:nth-child(1) {
-  transform: translateX(-29px);
-}
-.about-symbol > span:nth-child(2) {
-  transform: translateX(29px);
-}
-.about-symbol > span:nth-child(3) {
-  width: 128px;
-  height: 128px;
-  border-color: #dce2d5;
-}
-.about-symbol > svg {
-  color: var(--primary);
-  background: var(--background);
-  z-index: 1;
+  font-size: 0.75rem;
 }
 .expertise-section {
   background: #f0f2eb;
@@ -635,7 +637,7 @@ h2 em {
 .expertise-top > span {
   font-family: monospace;
   color: var(--muted-foreground);
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
 }
 .expertise-toggle {
   display: flex;
@@ -655,21 +657,21 @@ h2 em {
 }
 .expertise-description {
   color: var(--muted-foreground);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.8;
   margin-top: 10px;
   max-width: 235px;
   min-height: 40px;
 }
 .expertise-detail {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.8;
   color: var(--muted-foreground);
   padding-top: 17px;
 }
 .expertise-detail span {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   line-height: 1.9;
   color: var(--primary);
   margin-top: 13px;
@@ -679,7 +681,7 @@ h2 em {
   align-items: center;
   gap: 6px;
   margin-top: 27px;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: #65715e;
 }
 .expertise-status > span {
@@ -694,6 +696,25 @@ h2 em {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 35px;
+}
+.project-card {
+  min-width: 0;
+}
+.project-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+@media (min-width: 801px) {
+  .project-card:last-child:nth-child(odd) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 35px;
+    border-top: 1px solid var(--border);
+    padding-top: 35px;
+  }
+  .project-card:last-child:nth-child(odd) .project-meta {
+    margin-top: 0;
+  }
 }
 .project-preview-link {
   display: block;
@@ -712,15 +733,19 @@ h2 em {
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  font-size: 0.4375rem;
+  font-size: 0.75rem;
   letter-spacing: 1.2px;
 }
 .preview-eyebrow > span:first-child {
   font-weight: 600;
 }
-.nurse-preview {
+.screenshot-preview {
   background: #dfe9d8;
   color: #486a46;
+}
+.screenshot-preview[data-tone="harvest"] {
+  background: #e8ecd9;
+  color: #425f2d;
 }
 .browser-preview {
   aspect-ratio: 1.7;
@@ -748,7 +773,7 @@ h2 em {
   padding: 0 10px;
   border-bottom: 1px solid #e5e9e0;
   color: #667260;
-  font-size: 0.375rem;
+  font-size: 0.75rem;
 }
 .browser-toolbar > span:nth-child(2) {
   display: flex;
@@ -765,7 +790,7 @@ h2 em {
   background: #c0c9b7;
   border-radius: 50%;
 }
-.nurse-screenshot {
+.project-screenshot {
   width: 100%;
   height: auto;
   display: block;
@@ -775,7 +800,7 @@ h2 em {
   left: 28px;
   bottom: 19px;
   font-family: monospace;
-  font-size: 0.375rem;
+  font-size: 0.75rem;
   letter-spacing: 0.8px;
 }
 .preview-link-arrow {
@@ -837,12 +862,12 @@ h2 em {
   stroke-width: 1.2;
 }
 .facility > span {
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   font-weight: 500;
   white-space: nowrap;
 }
 .facility > small {
-  font-size: 0.4375rem;
+  font-size: 0.75rem;
   color: #606f5e;
 }
 .exchange-path {
@@ -889,13 +914,13 @@ h2 em {
   border-radius: 5px;
 }
 .exchange-core > strong {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 1.8px;
   font-weight: 500;
   margin-top: 5px;
 }
 .exchange-core > small {
-  font-size: 0.4375rem;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 .exchange-properties {
@@ -912,7 +937,7 @@ h2 em {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.375rem;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 .project-meta {
@@ -922,14 +947,14 @@ h2 em {
   gap: 12px;
   justify-content: space-between;
   margin-top: 25px;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 .project-status {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 }
 .project-status > span {
   width: 4px;
@@ -963,10 +988,21 @@ h2 em {
   max-width: 480px;
 }
 .project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
   font-family: monospace;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: #65775f;
   margin-top: 20px;
+}
+.project-technologies > li {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 5px 8px;
+  line-height: 1.5;
 }
 .project-links {
   display: flex;
@@ -979,17 +1015,17 @@ h2 em {
   padding-top: 19px;
 }
 .project-links .inline-link {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .project-links > a:last-child {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 .access-note {
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 .more-projects {
@@ -1000,7 +1036,7 @@ h2 em {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .more-projects > span,
 .more-projects > strong {
@@ -1012,17 +1048,20 @@ h2 em {
   color: var(--muted-foreground);
 }
 .more-projects > strong {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 500;
 }
 .more-projects:hover > strong > svg {
   transform: translate(2px, -2px);
 }
 
-/* Direction map */
+/* Engineering journey */
 .journey-section {
   background: #244b38;
   color: #f5f6ed;
+}
+.journey-section .section {
+  padding-block: 80px;
 }
 .journey-section .section-label {
   color: #c2cfbb;
@@ -1047,11 +1086,11 @@ h2 em {
 }
 .journey-path {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 0;
-  margin: 53px 0 0;
+  margin: 40px 0 0;
   list-style: none;
-  gap: 0;
+  gap: 28px;
 }
 .journey-path li {
   position: relative;
@@ -1080,46 +1119,28 @@ h2 em {
 }
 .journey-point > span {
   font-family: monospace;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
 }
 .journey-point > svg {
-  width: 12px;
+  width: 18px;
 }
 .journey-path h3 {
-  font-size: 0.75rem;
-  font-weight: 400;
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.8;
-  margin-top: 18px;
-  max-width: 125px;
+  margin-top: 12px;
+}
+.journey-entry {
+  min-width: 0;
+}
+.journey-entry p {
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: #d1dbcd;
+  margin-top: 8px;
 }
 .journey-path li:last-child h3 {
   color: #dae8bf;
-}
-.journey-applications {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid #597051;
-  padding-top: 23px;
-  margin-top: 45px;
-}
-.journey-applications > span {
-  font-size: 0.5rem;
-  letter-spacing: 1.3px;
-  color: #b7c9a7;
-}
-.journey-applications > div {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-.journey-applications > div > span {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 0.625rem;
-  color: #d5dece;
 }
 
 /* Contact and footer */
@@ -1133,7 +1154,7 @@ h2 em {
   gap: 83px;
 }
 .contact-layout .eyebrow {
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   letter-spacing: 1.2px;
   margin-bottom: 18px;
 }
@@ -1166,7 +1187,13 @@ h2 em {
   margin-bottom: 26px;
 }
 .contact-layout > div > a {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
+}
+.contact-email {
+  margin-top: 14px;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  overflow-wrap: anywhere;
 }
 .contact-links {
   padding-top: 8px;
@@ -1194,7 +1221,7 @@ h2 em {
 }
 .contact-links small {
   display: block;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   line-height: 1.7;
   color: var(--muted-foreground);
   margin-top: 4px;
@@ -1203,7 +1230,7 @@ h2 em {
   color: var(--primary);
 }
 .contact-links > p {
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
   margin-top: 16px;
 }
@@ -1223,7 +1250,7 @@ h2 em {
   font-weight: 500;
 }
 .footer-main p {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
   margin-top: 7px;
 }
@@ -1240,7 +1267,7 @@ h2 em {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 .footer-socials > a > svg:first-child {
   width: 13px;
@@ -1256,7 +1283,7 @@ h2 em {
   justify-content: space-between;
   gap: 15px;
   color: var(--muted-foreground);
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 }
 .footer-bottom a {
   display: flex;
@@ -1271,7 +1298,7 @@ h2 em {
 }
 .case-back {
   color: var(--muted-foreground);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -1313,7 +1340,7 @@ h2 em {
   padding-block: 21px;
   border-block: 1px solid var(--border);
   margin-bottom: 33px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .case-info > a {
   display: flex;
@@ -1322,7 +1349,7 @@ h2 em {
   margin-left: auto;
 }
 .case-info .project-status {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .preview-large {
   max-width: 100%;
@@ -1330,20 +1357,20 @@ h2 em {
   padding: 36px;
 }
 .preview-large .preview-eyebrow {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 .preview-large .browser-preview {
   max-width: 720px;
   margin: 36px auto 0;
 }
 .preview-large .preview-caption {
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   bottom: 24px;
   left: 36px;
 }
 .preview-large .browser-toolbar {
   height: 29px;
-  font-size: 0.5625rem;
+  font-size: 0.75rem;
 }
 .preview-large .exchange-visual {
   max-width: 740px;
@@ -1364,7 +1391,7 @@ h2 em {
   font-size: 0.875rem;
 }
 .preview-large .facility > small {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .preview-large .core-icon {
   width: 85px;
@@ -1378,14 +1405,14 @@ h2 em {
   font-size: 1rem;
 }
 .preview-large .exchange-core > small {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 .preview-large .exchange-properties {
   bottom: 19%;
   gap: 30px;
 }
 .preview-large .exchange-properties > span {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   gap: 7px;
 }
 .case-content {
@@ -1443,7 +1470,7 @@ h2 em {
   gap: 8px;
 }
 .case-tech-list > span {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   border-bottom: 1px solid #b8c8ad;
   padding: 6px 9px;
   color: var(--primary);
@@ -1462,13 +1489,13 @@ h2 em {
   text-underline-offset: 3px;
 }
 .case-sidebar p {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   line-height: 1.85;
   color: var(--muted-foreground);
 }
 .case-sidebar > a {
   margin-top: 20px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 .case-next {
   margin-top: 25px;
@@ -1480,7 +1507,7 @@ h2 em {
   gap: 20px;
 }
 .case-next span {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: var(--muted-foreground);
 }
 .case-next a {
@@ -1554,17 +1581,17 @@ h2 em {
   }
   .hero-actions > a:first-child {
     padding-inline: 16px;
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .text-cta {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     gap: 8px;
   }
   .visual-topline {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .field-node {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     padding: 9px;
   }
   .field-node svg {
@@ -1575,13 +1602,13 @@ h2 em {
     margin-inline: 9px;
   }
   .visual-caption strong {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .visual-caption p {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .caption-index {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .about-layout {
     gap: 50px;
@@ -1596,14 +1623,14 @@ h2 em {
     padding: 22px;
   }
   .preview-eyebrow {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
     letter-spacing: 0.8px;
   }
   .facility > span {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .facility > small {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .facility {
     padding: 12px 5px;
@@ -1612,7 +1639,7 @@ h2 em {
     gap: 9px;
   }
   .exchange-properties > span {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
   }
   .exchange-properties svg {
     width: 9px;
@@ -1622,14 +1649,11 @@ h2 em {
     height: 52px;
   }
   .preview-caption {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
     left: 22px;
   }
   .journey-heading {
     gap: 35px;
-  }
-  .journey-path h3 {
-    font-size: 0.625rem;
   }
   .expertise-toggle > span {
     font-size: 0.8125rem;
@@ -1679,16 +1703,21 @@ h2 em {
     letter-spacing: -1px;
   }
   .hero-eyebrow {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     letter-spacing: 1.2px;
     margin-bottom: 23px;
   }
   .hero-introduction {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
+    gap: 12px;
+  }
+  .hero-portrait {
+    width: 64px;
+    height: 64px;
   }
   .hero-description {
     line-height: 1.85;
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     margin-top: 20px;
   }
   .hero-actions {
@@ -1703,11 +1732,11 @@ h2 em {
   }
   .visual-topline {
     padding-inline: 6px;
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
     letter-spacing: 0.6px;
   }
   .field-node {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
     padding: 8px 7px;
     gap: 4px;
   }
@@ -1719,28 +1748,28 @@ h2 em {
     padding: 12px 0;
   }
   .visual-caption strong {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .visual-caption p {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     line-height: 1.6;
   }
   .caption-index {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .visual-hint {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .hero-bottom {
     margin-top: 28px;
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .identity-strip > div {
     min-height: 72px;
     gap: 15px;
   }
   .identity-strip span {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
     gap: 8px;
   }
   .identity-strip span > svg {
@@ -1750,7 +1779,7 @@ h2 em {
     font-size: 1.125rem;
   }
   .section-label {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     margin-bottom: 30px;
   }
@@ -1762,16 +1791,13 @@ h2 em {
     gap: 35px;
   }
   .about-copy p {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .about-copy .about-lead {
     font-size: 0.9375rem;
   }
-  .about-symbol {
-    margin-top: 30px;
-  }
   .section-heading > p {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .expertise-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1783,10 +1809,10 @@ h2 em {
     gap: 24px;
   }
   .project-meta {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .project-status {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .project-preview {
     aspect-ratio: 1.25;
@@ -1816,13 +1842,13 @@ h2 em {
     height: 20px;
   }
   .facility > span {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .exchange-core > strong {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .exchange-core > small {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
   }
   .exchange-properties {
     left: 10px;
@@ -1830,7 +1856,7 @@ h2 em {
     gap: 6px;
   }
   .exchange-properties > span {
-    font-size: 0.275rem;
+    font-size: 0.75rem;
     gap: 2px;
   }
   .exchange-properties svg {
@@ -1840,37 +1866,28 @@ h2 em {
     font-size: 1.4375rem;
   }
   .project-description {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .project-technologies {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     line-height: 1.8;
   }
   .project-links {
     gap: 12px;
   }
   .project-links .inline-link {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .access-note {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .journey-heading > p {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     width: 270px;
   }
   .journey-path {
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 33px;
-  }
-  .journey-path h3 {
-    font-size: 0.6875rem;
-  }
-  .journey-applications > div {
-    gap: 16px;
-  }
-  .journey-applications > div > span {
-    font-size: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
   .contact-layout {
     gap: 34px;
@@ -1880,10 +1897,10 @@ h2 em {
     letter-spacing: -1.5px;
   }
   .contact-description {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .contact-layout > div > a {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
     gap: 8px;
     padding-inline: 16px;
   }
@@ -1895,7 +1912,7 @@ h2 em {
     gap: 12px;
   }
   .contact-links small {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .footer-socials {
     gap: 16px;
@@ -1920,16 +1937,16 @@ h2 em {
     width: 85%;
   }
   .preview-large .facility > span {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .preview-large .facility > small {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .preview-large .exchange-properties {
     gap: 16px;
   }
   .preview-large .exchange-properties > span {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 @media (max-width: 600px) {
@@ -1947,14 +1964,14 @@ h2 em {
     font-size: 1.8125rem;
   }
   .brand-name {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .brand-name > span {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .header-contact {
     height: 35px;
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
     gap: 5px;
     padding-inline: 12px;
   }
@@ -1974,12 +1991,12 @@ h2 em {
     padding: 0;
   }
   .hero-eyebrow {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     letter-spacing: 1.35px;
     margin-bottom: 24px;
   }
   .hero-introduction {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     margin-bottom: 18px;
   }
   .hero h1 {
@@ -2002,12 +2019,12 @@ h2 em {
     margin-top: 23px;
   }
   .hero-actions > a:first-child {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     height: 45px;
     padding-inline: 18px;
   }
   .text-cta {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .hero-footnote {
     display: none;
@@ -2018,12 +2035,12 @@ h2 em {
     margin-inline: auto;
   }
   .visual-topline {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     letter-spacing: 0.7px;
     padding-inline: 9px;
   }
   .field-node {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
     padding: 9px 11px;
     gap: 6px;
   }
@@ -2036,24 +2053,24 @@ h2 em {
     margin-top: -4px;
   }
   .visual-caption strong {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .visual-caption p {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .caption-index {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .visual-hint {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     margin-top: 9px;
   }
   .globe-coordinate {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .hero-bottom {
     margin-top: 0;
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     padding-top: 19px;
     letter-spacing: 0.6px;
   }
@@ -2071,7 +2088,7 @@ h2 em {
     align-items: flex-start;
   }
   .identity-strip span {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     gap: 12px;
   }
   .identity-strip .strip-star {
@@ -2084,7 +2101,7 @@ h2 em {
     padding-block: 61px;
   }
   .section-label {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     margin-bottom: 30px;
   }
   .section-label > span:last-child {
@@ -2100,9 +2117,6 @@ h2 em {
   .about-layout {
     grid-template-columns: 1fr;
     gap: 26px;
-  }
-  .about-symbol {
-    display: none;
   }
   .about-copy p {
     font-size: 0.75rem;
@@ -2121,7 +2135,7 @@ h2 em {
     margin-bottom: 30px;
   }
   .section-heading > p {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .expertise-item {
     padding: 22px 17px;
@@ -2143,19 +2157,19 @@ h2 em {
     width: 13px;
   }
   .expertise-description {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     margin-top: 7px;
     line-height: 1.8;
     min-height: 55px;
   }
   .expertise-detail {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .expertise-detail span {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .expertise-status {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     margin-top: 20px;
   }
@@ -2168,7 +2182,7 @@ h2 em {
     padding: 24px;
   }
   .preview-eyebrow {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
   }
   .preview-eyebrow > span:last-child {
@@ -2179,12 +2193,12 @@ h2 em {
   }
   .browser-toolbar {
     height: 22px;
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .preview-caption {
     left: 24px;
     bottom: 15px;
-    font-size: 0.34375rem;
+    font-size: 0.75rem;
   }
   .exchange-visual {
     width: calc(100% - 40px);
@@ -2199,20 +2213,20 @@ h2 em {
     height: 25px;
   }
   .facility > span {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .facility > small {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .core-icon {
     width: 52px;
     height: 57px;
   }
   .exchange-core > strong {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .exchange-core > small {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .exchange-properties {
     gap: 9px;
@@ -2220,19 +2234,19 @@ h2 em {
     right: 18px;
   }
   .exchange-properties > span {
-    font-size: 0.3375rem;
+    font-size: 0.75rem;
     gap: 3px;
   }
   .exchange-properties svg {
     width: 10px;
   }
   .project-meta {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     margin-top: 20px;
     gap: 8px;
   }
   .project-status {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .project-title h3 {
     font-size: 1.625rem;
@@ -2241,17 +2255,17 @@ h2 em {
     font-size: 0.75rem;
   }
   .project-technologies {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .project-links {
     margin-top: 20px;
     padding-top: 17px;
   }
   .project-links .inline-link {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .access-note {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .more-projects {
     margin-top: 36px;
@@ -2261,16 +2275,19 @@ h2 em {
     gap: 15px;
   }
   .more-projects > span {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .more-projects > strong {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     margin-left: 31px;
   }
   .journey-heading {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+  }
+  .journey-section .section {
+    padding-block: 64px;
   }
   .journey-heading > p {
     width: auto;
@@ -2283,11 +2300,11 @@ h2 em {
   }
   .journey-path li {
     display: flex;
-    align-items: center;
-    gap: 22px;
+    align-items: flex-start;
+    gap: 14px;
     border-top: 0;
     border-left: 1px solid #78906c;
-    padding: 0 0 28px 24px;
+    padding: 0 0 24px 20px;
     margin-left: 3px;
   }
   .journey-path li::before {
@@ -2295,36 +2312,24 @@ h2 em {
     top: 8px;
   }
   .journey-point {
-    gap: 15px;
+    gap: 10px;
+    margin-top: 3px;
   }
   .journey-point > span {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
   .journey-point > svg {
-    width: 13px;
+    width: 16px;
   }
   .journey-path h3 {
     max-width: unset;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     line-height: 1.7;
     margin-top: 0;
   }
   .journey-path li:last-child {
     padding-bottom: 0;
     border-left-color: transparent;
-  }
-  .journey-applications {
-    align-items: flex-start;
-    flex-direction: column;
-    margin-top: 35px;
-    gap: 17px;
-  }
-  .journey-applications > div {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  .journey-applications > div > span {
-    font-size: 0.5625rem;
   }
   .contact-layout {
     grid-template-columns: 1fr;
@@ -2340,13 +2345,13 @@ h2 em {
     height: 27px;
   }
   .contact-layout .eyebrow {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .contact-description {
     font-size: 0.75rem;
   }
   .contact-layout > div > a {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     padding-inline: 19px;
   }
   .contact-links {
@@ -2360,7 +2365,7 @@ h2 em {
     font-size: 0.8125rem;
   }
   .contact-links small {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .footer-main {
     align-items: flex-start;
@@ -2375,7 +2380,7 @@ h2 em {
     gap: 24px;
   }
   .footer-bottom {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     padding-block: 18px;
   }
   .footer-bottom a {
@@ -2402,10 +2407,10 @@ h2 em {
   }
   .case-info {
     gap: 15px;
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .case-info .project-status {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .case-info > a {
     margin-left: 0;
@@ -2415,10 +2420,10 @@ h2 em {
     padding: 24px;
   }
   .preview-large .preview-eyebrow {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .preview-large .preview-caption {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
     left: 24px;
     bottom: 15px;
   }
@@ -2428,7 +2433,7 @@ h2 em {
   }
   .preview-large .browser-toolbar {
     height: 22px;
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .preview-large .exchange-visual {
     width: calc(100% - 34px);
@@ -2442,10 +2447,10 @@ h2 em {
     height: 26px;
   }
   .preview-large .facility > span {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .preview-large .facility > small {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .preview-large .core-icon {
     width: 48px;
@@ -2456,17 +2461,17 @@ h2 em {
     height: 24px;
   }
   .preview-large .exchange-core > strong {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
   .preview-large .exchange-core > small {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .preview-large .exchange-properties {
     gap: 9px;
     bottom: 23%;
   }
   .preview-large .exchange-properties > span {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
     gap: 3px;
   }
   .case-content {
@@ -2481,7 +2486,7 @@ h2 em {
     font-size: 0.75rem;
   }
   .case-list li {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .case-sidebar {
     padding: 25px;
@@ -2501,10 +2506,10 @@ h2 em {
     width: calc(100% - 32px);
   }
   .brand-name {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .header-contact {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     padding-inline: 10px;
   }
   .hero h1 {
@@ -2515,32 +2520,32 @@ h2 em {
   }
   .hero-actions > a:first-child {
     padding-inline: 15px;
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .text-cta {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .field-node {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
     padding: 8px;
   }
   .expertise-item {
     padding-inline: 13px;
   }
   .expertise-toggle > span {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .expertise-description {
-    font-size: 0.5625rem;
+    font-size: 0.75rem;
   }
   .facility > span {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
   .facility > small {
-    font-size: 0.3125rem;
+    font-size: 0.75rem;
   }
   .exchange-properties > span {
-    font-size: 0.26875rem;
+    font-size: 0.75rem;
   }
   .contact-section h2 {
     font-size: 10.4vw;
@@ -2549,10 +2554,10 @@ h2 em {
     width: 22px;
   }
   .project-meta {
-    font-size: 0.4375rem;
+    font-size: 0.75rem;
   }
   .project-status {
-    font-size: 0.375rem;
+    font-size: 0.75rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ProjectPreviewData } from "@/lib/content";
 import {
   ArrowRight,
   Building2,
@@ -6,23 +7,28 @@ import {
   FileText,
   GitBranch,
   LockKeyhole,
+  ArrowLeftRight,
+  Database,
+  ListChecks,
+  UsersRound,
 } from "lucide-react";
 
 export function ProjectPreview({
-  kind,
+  preview,
   large = false,
 }: {
-  kind: "screenshot" | "architecture";
+  preview: ProjectPreviewData;
   large?: boolean;
 }) {
-  if (kind === "screenshot")
+  if (preview.kind === "screenshot")
     return (
-      <div
-        className={`project-preview nurse-preview${large ? " preview-large" : ""}`}
+      <figure
+        className={`project-preview screenshot-preview${large ? " preview-large" : ""}`}
+        data-tone={preview.tone}
       >
         <div className="preview-eyebrow">
-          <span>NURSE.NG</span>
-          <span>THE NURSING ECOSYSTEM</span>
+          <span>{preview.name}</span>
+          <span>{preview.strapline}</span>
         </div>
         <div className="browser-preview">
           <div className="browser-toolbar">
@@ -32,31 +38,66 @@ export function ProjectPreview({
               <i />
             </span>
             <span>
-              <LockKeyhole aria-hidden="true" size={9} /> Local development
-              preview
+              <LockKeyhole aria-hidden="true" size={9} /> {preview.context}
             </span>
             <span>↗</span>
           </div>
           <Image
-            src="/images/nurse-ng-preview.webp"
-            alt="Actual Nurse.ng public page with the headline Better Careers, Stronger Nurses, Healthier Communities and nursing career search"
-            width={1440}
-            height={1030}
+            src={preview.src}
+            alt={preview.alt}
+            width={preview.width}
+            height={preview.height}
             sizes={
               large
                 ? "(max-width: 900px) 90vw, 1000px"
                 : "(max-width: 760px) 90vw, 46vw"
             }
-            className="nurse-screenshot"
+            className="project-screenshot"
           />
         </div>
-        <span className="preview-caption">
-          ACTUAL APPLICATION · LOCAL PAGE CAPTURE
-        </span>
-      </div>
+        <figcaption className="preview-caption">{preview.caption}</figcaption>
+      </figure>
     );
+  if (preview.kind === "language") {
+    const stages = [
+      {
+        name: "Data collection",
+        detail: "Community / Users",
+        icon: UsersRound,
+      },
+      { name: "Data review", detail: "Review & validation", icon: ListChecks },
+      { name: "Dataset", detail: "Clean / verified data", icon: Database },
+    ];
+    return (
+      <figure
+        className={`project-preview language-preview${large ? " preview-large" : ""}`}
+      >
+        <div className="preview-eyebrow">
+          <span>{preview.name}</span>
+          <span>LANGUAGE PRESERVATION</span>
+        </div>
+        <div className="language-visual">
+          <div className="language-pair">
+            <span>{preview.languages[0]}</span>
+            <ArrowLeftRight aria-hidden="true" size={24} />
+            <em>{preview.languages[1]}</em>
+          </div>
+          <ol className="dataset-stages" aria-label="Community data workflow">
+            {stages.map(({ name, detail, icon: Icon }) => (
+              <li key={name}>
+                <Icon aria-hidden="true" size={22} />
+                <strong>{name}</strong>
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <figcaption className="preview-caption">{preview.caption}</figcaption>
+      </figure>
+    );
+  }
   return (
-    <div
+    <figure
       className={`project-preview hmsi-preview${large ? " preview-large" : ""}`}
     >
       <div className="preview-eyebrow">
@@ -104,9 +145,9 @@ export function ProjectPreview({
           <Check aria-hidden="true" size={12} /> Audit history
         </span>
       </div>
-      <span className="preview-caption">
+      <figcaption className="preview-caption">
         EXPLANATORY ARCHITECTURE · NOT A PRODUCT SCREENSHOT
-      </span>
-    </div>
+      </figcaption>
+    </figure>
   );
 }

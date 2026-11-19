@@ -3,9 +3,11 @@ import localFont from "next/font/local";
 import { identity } from "@/lib/content";
 import { AccessibilityProvider } from "@/components/accessibility";
 import { accessibilityScript } from "@/lib/accessibility-script";
+import { isSiteConfigured, siteOrigin, siteUrl } from "@/lib/site";
 import "./globals.css";
 import "./accessibility.css";
 import "./themes.css";
+import "./reading.css";
 
 const sans = localFont({
   src: "../../public/fonts/dm-sans.woff2",
@@ -21,24 +23,30 @@ const serif = localFont({
   weight: "400",
 });
 
+const portfolioTitle = `${identity.name} — ${identity.title}`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  ),
+  metadataBase: siteOrigin ? new URL(siteOrigin) : undefined,
+  alternates: siteOrigin ? { canonical: siteUrl("/") } : undefined,
   title: {
-    default: "Otete Benjamin Agogo — Software Engineer",
+    default: portfolioTitle,
     template: "%s | Benjamin Agogo",
   },
-  description:
-    "Software engineer building useful technology at the intersection of engineering, AI, healthcare, and connected systems. Explore Nurse.ng, HMSI-API, and my engineering direction.",
+  description: `${identity.title} building useful technology across healthcare, agriculture, and language preservation. Explore Nurse.ng, HMSI-API, Agro-Shield, and Igede Language SI.`,
   applicationName: "Benjamin Agogo Portfolio",
   authors: [{ name: identity.name, url: identity.github }],
   keywords: [
     identity.name,
-    "Software Engineer",
+    identity.title,
     "Healthcare Technology",
     "Nurse.ng",
     "HMSI-API",
+    "Agro-Shield",
+    "Igede Language SI",
+    "Igede",
+    "Language Preservation",
+    "Natural Language Processing",
+    "Agricultural Technology",
     "Backend Engineering",
     "AI",
     "IoT",
@@ -46,25 +54,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Otete Benjamin Agogo — Software Engineer",
+    title: portfolioTitle,
     description:
       "Useful technology. Human impact. Engineering, AI, healthcare, and connected systems.",
-    images: [
-      {
-        url: "/images/social-preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Otete Benjamin Agogo — Engineering for a more connected world",
-      },
-    ],
+    url: siteUrl("/"),
+    siteName: "Benjamin Agogo Portfolio",
+    images: siteOrigin
+      ? [
+          {
+            url: siteUrl("/images/social-preview.png")!,
+            width: 1200,
+            height: 630,
+            alt: "Otete Benjamin Agogo — Engineering for a more connected world",
+          },
+        ]
+      : [],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Otete Benjamin Agogo — Software Engineer",
+    title: portfolioTitle,
     description: "Engineering for a more connected world.",
-    images: ["/images/social-preview.png"],
+    images: siteOrigin ? [siteUrl("/images/social-preview.png")!] : [],
   },
-  robots: { index: true, follow: true },
+  robots: { index: isSiteConfigured, follow: isSiteConfigured },
   icons: { icon: "/icon.svg" },
 };
 

@@ -2,9 +2,9 @@
   {
     "route": "/",
     "performance": {
-      "domContentLoadedMs": 236,
-      "firstContentfulPaintMs": 1860,
-      "largestContentfulPaintMs": 1860,
+      "domContentLoadedMs": 314,
+      "firstContentfulPaintMs": 2116,
+      "largestContentfulPaintMs": 2116,
       "externalResources": []
     },
     "violations": []
@@ -12,9 +12,9 @@
   {
     "route": "/projects/nurse-ng/",
     "performance": {
-      "domContentLoadedMs": 161,
-      "firstContentfulPaintMs": 464,
-      "largestContentfulPaintMs": 512,
+      "domContentLoadedMs": 114,
+      "firstContentfulPaintMs": 576,
+      "largestContentfulPaintMs": 712,
       "externalResources": []
     },
     "violations": []
@@ -22,9 +22,9 @@
   {
     "route": "/projects/hmsi-api/",
     "performance": {
-      "domContentLoadedMs": 119,
-      "firstContentfulPaintMs": 412,
-      "largestContentfulPaintMs": 412,
+      "domContentLoadedMs": 156,
+      "firstContentfulPaintMs": 772,
+      "largestContentfulPaintMs": 772,
       "externalResources": []
     },
     "violations": []
@@ -32,9 +32,9 @@
   {
     "route": "/404.html",
     "performance": {
-      "domContentLoadedMs": 78,
-      "firstContentfulPaintMs": 224,
-      "largestContentfulPaintMs": 224,
+      "domContentLoadedMs": 117,
+      "firstContentfulPaintMs": 608,
+      "largestContentfulPaintMs": 608,
       "externalResources": []
     },
     "violations": []

@@ -1,5 +1,66 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { projects } from "../src/lib/content";
+
+const projectRoutes = projects.map((project) => `/projects/${project.slug}/`);
+
+async function expectAccessible(page: Page) {
+  const { violations } = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .analyze();
+  expect(
+    violations.map(({ id, nodes }) => ({
+      id,
+      nodes: nodes.map(({ target }) => target),
+    })),
+  ).toEqual([]);
+}
+
+for (const route of ["/", ...projectRoutes, "/404.html"]) {
+  test(`WCAG accessibility on ${route}`, async ({ page }) => {
+    await page.goto(route);
+    await expectAccessible(page);
+  });
+}
+
+for (const route of ["/", ...projectRoutes]) {
+  test(`dark appearance is accessible on ${route}`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark", reducedMotion: "reduce" });
+    await page.goto(route);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expectAccessible(page);
+  });
+
+  test(`larger text and higher contrast stay accessible on ${route}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page.emulateMedia({ colorScheme: "light", reducedMotion: "reduce" });
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        "benjamin-portfolio-accessibility",
+        JSON.stringify({
+          theme: "light",
+          largeText: true,
+          highContrast: true,
+          reduceMotion: true,
+        }),
+      );
+    });
+    await page.goto(route);
+    await expect(page.locator("html")).toHaveAttribute(
+      "data-text-size",
+      "large",
+    );
+    await expect(page.locator("html")).toHaveAttribute("data-contrast", "high");
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await expectAccessible(page);
+  });
+}
 
 test("all sections render with working assets and no browser errors", async ({
   page,
@@ -14,8 +75,8 @@ test("all sections render with working assets and no browser errors", async ({
   for (const id of [
     "home",
     "about",
-    "expertise",
     "projects",
+    "expertise",
     "journey",
     "contact",
   ]) {
@@ -23,12 +84,20 @@ test("all sections render with working assets and no browser errors", async ({
     await section.scrollIntoViewIfNeeded();
     await expect(section).toBeVisible();
   }
-  await expect(page.locator("img")).toHaveCount(1);
-  expect(
-    await page
-      .locator("img")
-      .evaluate((image) => (image as HTMLImageElement).naturalWidth),
-  ).toBeGreaterThan(0);
+  await expect(
+    page.locator("#home").getByRole("img", {
+      name: "Otete Benjamin Agogo",
+      exact: true,
+    }),
+  ).toBeVisible();
+  for (const image of await page.locator("img").all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() =>
+        image.evaluate((element) => (element as HTMLImageElement).naturalWidth),
+      )
+      .toBeGreaterThan(0);
+  }
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -65,7 +134,7 @@ test("system visual selections and expertise disclosures respond", async ({
   }
 });
 
-test("navigation, both case studies, contact links, and back-to-top work", async ({
+test("navigation, all case studies, contact links, and back-to-top work", async ({
   page,
   isMobile,
 }) => {
@@ -105,6 +174,51 @@ test("navigation, both case studies, contact links, and back-to-top work", async
   await expect(page.locator(".case-sidebar")).toContainText(
     "currently unavailable publicly",
   );
+  await page
+    .locator(".case-next")
+    .getByRole("link", { name: "Agro-Shield", exact: true })
+    .click();
+  await expect(page).toHaveURL(/projects\/agro-shield/);
+  await expect(
+    page.getByRole("heading", { name: "A team project" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Architecture", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "In progress", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /View repository/ }),
+  ).toHaveAttribute("href", "https://github.com/etoosammy01/Agro-Shield");
+  await expect(
+    page.getByRole("link", { name: /Live application/ }),
+  ).toHaveAttribute("href", "https://agroshield.com.ng/");
+  await page
+    .locator(".case-next")
+    .getByRole("link", { name: "Igede Language SI", exact: true })
+    .click();
+  await expect(page).toHaveURL(/projects\/igede-language-si/);
+  await expect(page.locator(".case-role")).toHaveText(
+    "Project Lead and Head of Communication",
+  );
+  await expect(page.locator(".case-former-name")).toHaveText(
+    "Formerly Igede AI",
+  );
+  await expect(
+    page.getByRole("link", { name: "Request GitHub access", exact: true }),
+  ).toHaveAttribute("href", "/#contact");
+  await expect(
+    page.locator(
+      'a[href="https://github.com/benjaminagogo1/Igede-language-AI"]',
+    ),
+  ).toHaveCount(0);
+  await expect(page.locator(".case-sidebar")).toContainText(
+    "not publicly accessible",
+  );
+  await expect(page.locator(".language-preview")).toContainText(
+    "CHATBOT & TRANSLATION PLANNED",
+  );
   await page.getByRole("link", { name: "Discuss this project" }).click();
   await expect(page).toHaveURL(/#contact/);
   const socialLinks = page.locator(".contact-links > a");
@@ -123,42 +237,21 @@ test("navigation, both case studies, contact links, and back-to-top work", async
   void isMobile;
 });
 
-test("WCAG accessibility on every page and expanded navigation", async ({
+test("WCAG accessibility and keyboard focus in expanded navigation", async ({
   page,
 }) => {
-  for (const route of [
-    "/",
-    "/projects/nurse-ng/",
-    "/projects/hmsi-api/",
-    "/404.html",
-  ]) {
-    await page.goto(route);
-    const violations = (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze()
-    ).violations;
-    expect(
-      violations.map((item) => ({
-        id: item.id,
-        nodes: item.nodes.map((node) => node.target),
-      })),
-    ).toEqual([]);
-  }
   await page.goto("/");
   const menu = page.getByRole("button", { name: "Open navigation" });
   if (await menu.isVisible()) {
     await menu.click();
-    expect(
-      (
-        await new AxeBuilder({ page })
-          .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-          .analyze()
-      ).violations,
-    ).toEqual([]);
+    await expectAccessible(page);
     await page.keyboard.press("Escape");
     await expect(page.getByRole("dialog")).not.toBeVisible();
     await expect(menu).toBeFocused();
+  } else {
+    await expect(
+      page.getByRole("navigation", { name: "Main navigation" }),
+    ).toBeVisible();
   }
 });
 
@@ -166,7 +259,7 @@ test("reduced motion and narrow layouts stay usable", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const width of [320, 390, 768, 1280]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/projects/nurse-ng/", "/projects/hmsi-api/"]) {
+    for (const route of ["/", ...projectRoutes]) {
       await page.goto(route);
       expect(
         await page.evaluate(
@@ -185,7 +278,6 @@ test("reduced motion and narrow layouts stay usable", async ({ page }) => {
 test("reading preferences are accessible, persistent, and usable at 320px", async ({
   page,
 }) => {
-  test.setTimeout(90000);
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto("/");
   const control = page.getByRole("button", {
@@ -209,18 +301,12 @@ test("reading preferences are accessible, persistent, and usable at 320px", asyn
       parseFloat(getComputedStyle(document.documentElement).fontSize),
     ),
   ).toBeGreaterThan(16);
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
+  await expectAccessible(page);
   await page.keyboard.press("Escape");
   await expect(control).toBeFocused();
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-text-size", "large");
-  for (const route of ["/", "/projects/nurse-ng/", "/projects/hmsi-api/"]) {
+  for (const route of ["/", ...projectRoutes]) {
     await page.goto(route);
     expect(
       await page.evaluate(
@@ -232,13 +318,6 @@ test("reading preferences are accessible, persistent, and usable at 320px", asyn
         () => getComputedStyle(document.documentElement).scrollBehavior,
       ),
     ).toBe("auto");
-    expect(
-      (
-        await new AxeBuilder({ page })
-          .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-          .analyze()
-      ).violations,
-    ).toEqual([]);
   }
   await control.click();
   await page.getByRole("button", { name: "Reset to defaults" }).click();
@@ -318,7 +397,6 @@ test("essential content and section navigation work without JavaScript", async (
 test("Light, Dark, and System themes persist and remain accessible", async ({
   page,
 }) => {
-  test.setTimeout(90000);
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -334,26 +412,13 @@ test("Light, Dark, and System themes persist and remain accessible", async ({
   await control.click();
   await selectTheme("Dark");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
+  await expectAccessible(page);
   await page.keyboard.press("Escape");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  for (const route of ["/", "/projects/nurse-ng/", "/projects/hmsi-api/"]) {
+  for (const route of ["/", ...projectRoutes]) {
     await page.goto(route);
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-    expect(
-      (
-        await new AxeBuilder({ page })
-          .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-          .analyze()
-      ).violations,
-    ).toEqual([]);
   }
   await control.click();
   await selectTheme("System");
@@ -366,11 +431,5 @@ test("Light, Dark, and System themes persist and remain accessible", async ({
   await page
     .getByRole("checkbox", { name: "Higher contrast", exact: true })
     .check();
-  expect(
-    (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
-        .analyze()
-    ).violations,
-  ).toEqual([]);
+  await expectAccessible(page);
 });

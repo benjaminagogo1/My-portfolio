@@ -4,6 +4,7 @@ import {
   Github,
   Linkedin,
   Facebook,
+  Mail,
 } from "lucide-react";
 import { identity } from "@/lib/content";
 
@@ -19,6 +20,10 @@ export function Footer({ home = false }: { home?: boolean }) {
             </p>
           </div>
           <div className="footer-socials">
+            <a href={`mailto:${identity.email}`}>
+              <Mail aria-hidden="true" size={17} />
+              Email
+            </a>
             <a href={identity.github} target="_blank" rel="noopener noreferrer">
               <Github aria-hidden="true" size={17} />
               GitHub

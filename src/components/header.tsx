@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Menu } from "lucide-react";
-import { navigation } from "@/lib/content";
+import { cvPath, identity, navigation } from "@/lib/content";
 import { buttonVariants } from "@/components/ui/button";
 import { AccessibilityControls } from "@/components/accessibility";
 import {
@@ -22,7 +22,7 @@ export function Brand() {
         ba<span>↗</span>
       </span>
       <span className="brand-name">
-        Benjamin Agogo<span>Software Engineer</span>
+        Benjamin Agogo<span>{identity.title}</span>
       </span>
     </>
   );
@@ -70,12 +70,27 @@ export function Header({ home = false }: { home?: boolean }) {
               {label}
             </a>
           ))}
+          {cvPath && (
+            <a href={cvPath} target="_blank" rel="noopener noreferrer">
+              View CV
+            </a>
+          )}
+          {!cvPath && (
+            <span
+              className="nav-cv-placeholder"
+              title="Your finished CV will be linked here"
+            >
+              CV <span>soon</span>
+            </span>
+          )}
         </nav>
         <a
           className={`${buttonVariants({ size: "sm" })} header-contact`}
           href={href("contact")}
         >
-          Let’s connect <ArrowUpRight aria-hidden="true" />
+          <span className="contact-label-full">Let’s connect</span>
+          <span className="contact-label-short">Contact</span>
+          <ArrowUpRight aria-hidden="true" />
         </a>
         <AccessibilityControls />
         <Dialog open={open} onOpenChange={setOpen}>
@@ -101,11 +116,24 @@ export function Header({ home = false }: { home?: boolean }) {
                   </a>
                 </DialogClose>
               ))}
+              {cvPath && (
+                <DialogClose asChild>
+                  <a href={cvPath} target="_blank" rel="noopener noreferrer">
+                    <span>CV</span> View CV{" "}
+                    <ArrowUpRight aria-hidden="true" size={19} />
+                  </a>
+                </DialogClose>
+              )}
+              {!cvPath && (
+                <div className="mobile-cv-placeholder">
+                  View CV <span>Coming soon</span>
+                </div>
+              )}
             </nav>
             <p className="mt-auto text-sm text-muted-foreground">
-              Otete Benjamin Agogo
+              {identity.name}
               <br />
-              Software Engineer
+              {identity.title}
             </p>
           </DialogContent>
         </Dialog>

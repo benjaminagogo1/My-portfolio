@@ -39,13 +39,7 @@ html[data-theme="dark"] .identity-strip .strip-star {
   color: var(--primary);
 }
 html[data-theme="dark"]
-  :is(
-    .expertise-grid,
-    .expertise-item,
-    .more-projects,
-    .about-symbol > span,
-    .visual-caption
-  ) {
+  :is(.expertise-grid, .expertise-item, .more-projects, .visual-caption) {
   border-color: var(--border);
 }
 html[data-theme="dark"] .expertise-item:hover,
@@ -99,8 +93,12 @@ html[data-theme="dark"] .field-node.is-selected {
   border-color: var(--primary);
   background: #243820;
 }
-html[data-theme="dark"] .nurse-preview {
+html[data-theme="dark"] .screenshot-preview {
   background: #223b31;
+  color: var(--primary);
+}
+html[data-theme="dark"] .screenshot-preview[data-tone="harvest"] {
+  background: #27351e;
   color: var(--primary);
 }
 html[data-theme="dark"] .hmsi-preview {
@@ -175,7 +173,7 @@ html[data-theme="dark"][data-contrast="high"] :is(.facility, .core-icon) {
   outline-offset: 4px;
 }
 .appearance-controls > p {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.8;
   color: var(--muted-foreground);
   margin-top: 11px;

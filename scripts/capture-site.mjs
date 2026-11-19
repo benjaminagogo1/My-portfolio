@@ -34,9 +34,14 @@ try {
       ["home", "/"],
       ["nurse-ng", "/projects/nurse-ng/"],
       ["hmsi-api", "/projects/hmsi-api/"],
+      ["agro-shield", "/projects/agro-shield/"],
     ]) {
       await page.goto(`${origin}${route}`);
       await page.evaluate(() => document.fonts.ready);
+      for (const image of await page.locator("img").all()) {
+        await image.scrollIntoViewIfNeeded();
+        await image.evaluate((element) => element.decode());
+      }
       await page.locator("footer").scrollIntoViewIfNeeded();
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.waitForTimeout(150);
@@ -75,18 +80,16 @@ try {
         await page
           .getByRole("button", { name: "Display and accessibility" })
           .click();
-        await page
-          .getByRole("dialog")
-          .screenshot({
-            path: `docs/verification/accessibility-${width}${suffix}.png`,
-          });
+        await page.getByRole("dialog").screenshot({
+          path: `docs/verification/accessibility-${width}${suffix}.png`,
+        });
         await page.keyboard.press("Escape");
       }
     }
     await page.close();
   }
   console.log(
-    "Captured production screenshots at desktop, tablet, mobile, and 320px widths.",
+    `Captured production screenshots at ${widths.join(", ")}px (${theme}).`,
   );
 } finally {
   await browser.close();

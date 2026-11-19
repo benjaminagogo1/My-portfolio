@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/etoosammy01/Agro-Shield",
+  "commit": "b12b4d3032a64656db0b33738bfb9b82f231cd13",
+  "template": "frontend/pages/index.html",
+  "template_sha256": "8f383a9d03e6d650180ba86a22883d7d78424117f1934ec7500d821566d0d60e",
+  "capture": "Public landing-page template with its original CSS, JavaScript, branding, and marketing photographs; no authenticated pages or uploaded profile images.",
+  "source_files": [
+    "frontend/pages/index.html",
+    "frontend/css/style.css",
+    "frontend/js/index.js",
+    "frontend/js/navigation.js",
+    "frontend/assets/logo/Agro-Shield_logo.png",
+    "frontend/assets/logo/Agro-Shield_logo2.png",
+    "frontend/assets/images/Farmer1.jpeg",
+    "frontend/assets/images/Farmer2.jpeg",
+    "frontend/assets/images/Farmer3.jpeg",
+    "frontend/assets/images/Farmer4.jpeg",
+    "frontend/assets/images/Farmer5.jpeg",
+    "frontend/assets/images/Farmer6.jpeg",
+    "frontend/assets/images/Farmer7.jpeg",
+    "frontend/assets/images/Farmer8.jpeg",
+    "frontend/assets/images/Farmer9.jpeg",
+    "frontend/assets/images/Farmer10.jpeg"
+  ]
+}

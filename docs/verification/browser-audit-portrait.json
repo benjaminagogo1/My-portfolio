@@ -1,0 +1,232 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 72,
+      "portraitHeight": 72,
+      "overflow": false,
+      "theme": "light",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 2504,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 72,
+      "portraitHeight": 72,
+      "overflow": false,
+      "theme": "dark",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 2368,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "width": 768,
+    "theme": "light",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "light",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 1820,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": null,
+    "passed": true
+  },
+  {
+    "width": 768,
+    "theme": "dark",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "dark",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 2040,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": null,
+    "passed": true
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "light",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 596,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": null,
+    "passed": true
+  },
+  {
+    "width": 390,
+    "theme": "dark",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "dark",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 1116,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": null,
+    "passed": true
+  },
+  {
+    "width": 320,
+    "theme": "light",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "light",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 876,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "width": 320,
+    "theme": "dark",
+    "large": false,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "dark",
+      "fontSize": "16px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 728,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "width": 320,
+    "theme": "light",
+    "large": true,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "light",
+      "fontSize": "19.2px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 428,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  },
+  {
+    "width": 320,
+    "theme": "dark",
+    "large": true,
+    "layout": {
+      "portraitCount": 1,
+      "heroPortraitCount": 1,
+      "aboutImages": 0,
+      "naturalWidth": 294,
+      "portraitWidth": 64,
+      "portraitHeight": 64,
+      "overflow": false,
+      "theme": "dark",
+      "fontSize": "19.2px"
+    },
+    "performance": {
+      "largestContentfulPaintMs": 716,
+      "externalResources": []
+    },
+    "errors": [],
+    "violations": [],
+    "passed": true
+  }
+]

@@ -36,6 +36,7 @@ try {
     "/",
     "/projects/nurse-ng/",
     "/projects/hmsi-api/",
+    "/projects/agro-shield/",
     "/404.html",
   ]) {
     await page.goto(`${origin}${route}`);

@@ -1,6 +1,6 @@
 # Otete Benjamin Agogo — Portfolio
 
-A responsive personal portfolio for a software engineer exploring the intersection of engineering, AI, healthcare, and connected systems. The design combines an editorial layout, forest-green palette, DM Sans and Instrument Serif typography, and an original interactive systems illustration.
+A responsive personal portfolio for an AI-Native Engineer developing through a fellowship programme and exploring the intersection of engineering, AI, healthcare, and connected systems. The design combines an editorial layout, forest-green palette, DM Sans and Instrument Serif typography, and an original interactive systems illustration.
 
 ## Run locally
 
@@ -31,22 +31,29 @@ Browser tests use Chrome at `/usr/bin/google-chrome` by default. Override `PLAYW
 - **Motion:** restrained section reveals respecting reduced motion. Essential content also renders without JavaScript.
 - **Display and accessibility:** saved System, Light, and Dark appearance choices, larger text, higher contrast, and reduced motion, available from the header on every page.
 - **Zod:** validates shared project data at build time.
-- **Contact:** real GitHub, LinkedIn, and Facebook links. No public email was verified, so an email form and React Hook Form are intentionally unnecessary for this version.
-- **Assets:** self-hosted fonts, an optimized genuine Nurse.ng screenshot, and original code-native diagrams. There are no runtime font or image CDN dependencies.
+- **Contact:** direct email, a Copy email action, and real GitHub, LinkedIn, and Facebook links. CV placeholders appear in navigation and Contact until the owner’s finished PDF is configured.
+- **Assets:** self-hosted fonts, an optimized owner-supplied portrait, genuine Nurse.ng and Agro-Shield public-page captures, and original code-native diagrams for HMSI-API and Igede Language SI. There are no runtime font or image CDN dependencies.
 
 ## Content maintenance
 
-`src/lib/content.ts` owns identity, navigation, expertise, and project descriptions. Add a project object there and choose a suitable preview in `src/components/project-preview.tsx`; case-study routes are generated automatically. Keep implemented capabilities and planned work separate.
+`src/lib/content.ts` owns identity, navigation, expertise, and validated project records. Each project contains its domain, status, technologies, implemented features, work in progress, planned work, repository, optional verified live URL, and preview metadata. Team context and architecture are optional fields. To add a screenshot project, place the asset in `public/images` and add its record, including dimensions, alt text, provenance, and presentation tone. Cards and case-study routes are generated automatically. Keep implemented capabilities, in-progress work, and planned work separate.
 
 `src/components` contains shared navigation, footer, illustration, expertise interactions, project visuals, and animation wrappers. `src/app/projects/[slug]/page.tsx` renders each project case study.
 
-Set `NEXT_PUBLIC_SITE_URL` to the actual public origin before the production build. Until a public origin is configured, local social metadata uses localhost and the sitemap contains no invented domain.
+Set `NEXT_PUBLIC_SITE_URL` to the actual public origin before publishing. The default `https://your-portfolio.example` is an explicit placeholder used for canonical links, sharing images, and the sitemap. Indexing remains disabled while that placeholder is active. Configuring the real origin updates every page, the sitemap, and robots instructions.
+
+Place the finished CV in `public/cv`, then set `NEXT_PUBLIC_CV_PATH` to its path, such as `/cv/otete-benjamin-agogo-cv.pdf`, and rebuild. The desktop navigation, mobile menu, and Contact placeholders become View CV links automatically. The build rejects a configured CV path if the PDF is missing.
+
+Project live links, repository availability, and evidence links are maintained in `src/lib/content.ts`. Missing live demos show labeled placeholders; HMSI-API offers repository access through Contact. Agro-Shield links to the owner-supplied live application and identifies Benjamin’s Frontend Engineer role. Case studies explain implementation choices and repository evidence without inventing measured outcomes.
+
+Run `npm run assets:social` locally after changing project sharing copy. It generates the portfolio artwork and a 1200 × 630 sharing image for each project using the installed browser and local assets.
 
 ## Deployment and evidence
 
 - [Free Cloudflare Pages deployment](docs/DEPLOYMENT.md): verified framework compatibility, setup, free-plan limits, and post-deployment checks.
 - [Project and asset evidence](docs/PROJECT_EVIDENCE.md): sources, screenshot provenance, verified technologies, and implementation boundaries.
 - [Accessibility implementation](docs/ACCESSIBILITY.md): saved reading preferences, keyboard support, screen-reader structure, touch targets, and graceful fallbacks.
+- [Updating prepared links](docs/LINKS.md): public origin, CV PDF, project links, and sharing artwork.
 - [Verification results](docs/verification/README.md): responsive screenshots and completed QA.
 
 The repository has not been pushed or deployed as part of the local build. No paid service, domain, account, or subscription is required.

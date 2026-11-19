@@ -1,0 +1,218 @@
+[
+  {
+    "width": 1440,
+    "theme": "light",
+    "status": 200,
+    "pageHeight": 5426,
+    "projectsTop": 1456.46875,
+    "sectionOrder": [
+      "home",
+      "about",
+      "projects",
+      "expertise",
+      "journey",
+      "contact"
+    ],
+    "navigationOrder": [
+      "Home",
+      "About",
+      "Projects",
+      "Expertise",
+      "Journey",
+      "Contact"
+    ],
+    "sectionHeights": [
+      {
+        "id": "home",
+        "height": 870
+      },
+      {
+        "id": "about",
+        "height": 394
+      },
+      {
+        "id": "projects",
+        "height": 1714
+      },
+      {
+        "id": "expertise",
+        "height": 909
+      },
+      {
+        "id": "journey",
+        "height": 507
+      },
+      {
+        "id": "contact",
+        "height": 628
+      }
+    ],
+    "emailAction": "mailto:josephbenjamin046@gmail.com",
+    "visibleEmail": "josephbenjamin046@gmail.com",
+    "footerEmail": "mailto:josephbenjamin046@gmail.com",
+    "horizontalOverflow": false,
+    "browserErrors": []
+  },
+  {
+    "width": 768,
+    "theme": "light",
+    "status": 200,
+    "pageHeight": 5315,
+    "projectsTop": 1257.328125,
+    "sectionOrder": [
+      "home",
+      "about",
+      "projects",
+      "expertise",
+      "journey",
+      "contact"
+    ],
+    "navigationOrder": [
+      "Home",
+      "About",
+      "Projects",
+      "Expertise",
+      "Journey",
+      "Contact"
+    ],
+    "sectionHeights": [
+      {
+        "id": "home",
+        "height": 671
+      },
+      {
+        "id": "about",
+        "height": 418
+      },
+      {
+        "id": "projects",
+        "height": 1806
+      },
+      {
+        "id": "expertise",
+        "height": 1032
+      },
+      {
+        "id": "journey",
+        "height": 479
+      },
+      {
+        "id": "contact",
+        "height": 528
+      }
+    ],
+    "emailAction": "mailto:josephbenjamin046@gmail.com",
+    "visibleEmail": "josephbenjamin046@gmail.com",
+    "footerEmail": "mailto:josephbenjamin046@gmail.com",
+    "horizontalOverflow": false,
+    "browserErrors": []
+  },
+  {
+    "width": 390,
+    "theme": "light",
+    "status": 200,
+    "pageHeight": 6695,
+    "projectsTop": 1698.875,
+    "sectionOrder": [
+      "home",
+      "about",
+      "projects",
+      "expertise",
+      "journey",
+      "contact"
+    ],
+    "navigationOrder": [
+      "Home",
+      "About",
+      "Projects",
+      "Expertise",
+      "Journey",
+      "Contact"
+    ],
+    "sectionHeights": [
+      {
+        "id": "home",
+        "height": 1003
+      },
+      {
+        "id": "about",
+        "height": 494
+      },
+      {
+        "id": "projects",
+        "height": 2136
+      },
+      {
+        "id": "expertise",
+        "height": 1074
+      },
+      {
+        "id": "journey",
+        "height": 636
+      },
+      {
+        "id": "contact",
+        "height": 824
+      }
+    ],
+    "emailAction": "mailto:josephbenjamin046@gmail.com",
+    "visibleEmail": "josephbenjamin046@gmail.com",
+    "footerEmail": "mailto:josephbenjamin046@gmail.com",
+    "horizontalOverflow": false,
+    "browserErrors": []
+  },
+  {
+    "width": 320,
+    "theme": "dark",
+    "status": 200,
+    "pageHeight": 6549,
+    "projectsTop": 1648.609375,
+    "sectionOrder": [
+      "home",
+      "about",
+      "projects",
+      "expertise",
+      "journey",
+      "contact"
+    ],
+    "navigationOrder": [
+      "Home",
+      "About",
+      "Projects",
+      "Expertise",
+      "Journey",
+      "Contact"
+    ],
+    "sectionHeights": [
+      {
+        "id": "home",
+        "height": 922
+      },
+      {
+        "id": "about",
+        "height": 526
+      },
+      {
+        "id": "projects",
+        "height": 2017
+      },
+      {
+        "id": "expertise",
+        "height": 1063
+      },
+      {
+        "id": "journey",
+        "height": 656
+      },
+      {
+        "id": "contact",
+        "height": 838
+      }
+    ],
+    "emailAction": "mailto:josephbenjamin046@gmail.com",
+    "visibleEmail": "josephbenjamin046@gmail.com",
+    "footerEmail": "mailto:josephbenjamin046@gmail.com",
+    "horizontalOverflow": false,
+    "browserErrors": []
+  }
+]

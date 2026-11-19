@@ -43,7 +43,7 @@ html[data-contrast="high"] .journey-section {
 }
 html[data-contrast="high"]
   .journey-section
-  :is(.section-label, .journey-point, .journey-applications > span) {
+  :is(.section-label, .journey-point) {
   color: #e0efcd;
 }
 html[data-motion="reduced"] {
@@ -142,7 +142,7 @@ html[data-motion="reduced"] .field-node:hover {
 .accessibility-keyboard-note {
   margin-top: 24px;
   padding-bottom: 20px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.8;
   color: var(--muted-foreground);
 }

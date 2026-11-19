@@ -1,0 +1,508 @@
+/* Reading text and useful labels retain their size at every viewport width. */
+:root {
+  --text-body: 1rem;
+  --text-label: 0.875rem;
+  --text-small: 0.75rem;
+}
+body {
+  font-size: var(--text-body);
+}
+.hero-introduction,
+.hero-description,
+.about-copy p,
+.project-description,
+.expertise-description,
+.expertise-detail,
+.journey-heading > p,
+.journey-entry p,
+.contact-description,
+.case-header > p:last-child,
+.case-block > p,
+.case-list li,
+.verification-example p,
+.error-page p {
+  font-size: var(--text-body);
+  line-height: 1.8;
+}
+.about-copy .about-lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.brand-name,
+.desktop-nav a,
+.header-contact,
+.hero-profile-copy > span,
+.hero-actions > a:first-child,
+.text-cta,
+.inline-link,
+.about-copy .inline-link,
+.section-heading > p,
+.expertise-detail span,
+.project-links .inline-link,
+.project-links > a:last-child,
+.more-projects,
+.more-projects > strong,
+.contact-links small,
+.contact-links > p,
+.footer-main p,
+.footer-socials > a,
+.footer-bottom,
+.case-back,
+.case-info,
+.case-info .project-status,
+.case-tech-list > span,
+.case-sidebar p,
+.case-next span {
+  font-size: var(--text-label);
+}
+.brand-name > span,
+.project-meta,
+.project-status,
+.project-technologies,
+.access-note,
+.link-placeholder,
+.expertise-status {
+  font-size: var(--text-small);
+  line-height: 1.7;
+}
+.expertise-toggle > span,
+.contact-links strong {
+  font-size: var(--text-body);
+}
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+.hero-actions a,
+.project-links a,
+.case-info > a,
+.contact-actions > a,
+.copy-email {
+  min-height: 44px;
+}
+.project-links {
+  justify-content: flex-start;
+  gap: 10px 24px;
+}
+.project-role {
+  margin-top: 12px;
+  color: var(--primary);
+  font-size: var(--text-label);
+  font-weight: 500;
+}
+.project-technologies > li {
+  padding: 6px 9px;
+}
+.expertise-item,
+.case-content > div,
+.case-sidebar,
+.contact-layout > div {
+  min-width: 0;
+}
+.case-block h3 {
+  margin: 20px 0 10px;
+  font-size: var(--text-body);
+  line-height: 1.5;
+  font-weight: 600;
+}
+.case-block .case-role {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.case-sidebar h3 {
+  font-size: var(--text-body);
+}
+.evidence-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 14px;
+  gap: 6px;
+}
+.full-preview-link {
+  margin-top: 16px;
+  color: var(--primary);
+}
+.case-former-name {
+  margin-top: 12px;
+  color: var(--muted-foreground);
+  font-size: var(--text-label);
+}
+.language-preview {
+  background: var(--secondary);
+  color: var(--primary);
+}
+.language-visual {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding-block: 16px;
+}
+.language-pair {
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+.language-pair em {
+  font-size: 1.2em;
+}
+.language-purpose {
+  color: var(--muted-foreground);
+  font-size: var(--text-label);
+  line-height: 1.7;
+  text-align: center;
+}
+.dataset-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: stretch;
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 12px;
+  list-style: none;
+}
+.dataset-stages li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  text-align: center;
+}
+.dataset-stages strong {
+  font-size: var(--text-label);
+  font-weight: 500;
+}
+.dataset-stages li > span {
+  color: var(--muted-foreground);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+.contact-actions,
+.email-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+.contact-actions > a,
+.contact-actions > button {
+  font-size: var(--text-label);
+}
+.email-details {
+  margin-top: 16px;
+}
+.contact-email {
+  margin-top: 0;
+  min-width: 0;
+  font-size: var(--text-label);
+  color: var(--primary);
+  overflow-wrap: anywhere;
+}
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--primary);
+  background: transparent;
+  font-size: var(--text-small);
+}
+.copy-email:hover {
+  background: var(--secondary);
+}
+.contact-copy-status {
+  font-size: var(--text-label);
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+.contact-copy-status:not(:empty) {
+  margin-top: 10px;
+}
+.placeholder-label {
+  font-size: var(--text-small);
+  color: var(--muted-foreground);
+}
+.link-placeholder {
+  color: var(--muted-foreground);
+}
+.nav-cv-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted-foreground);
+  font-size: var(--text-label);
+  white-space: nowrap;
+}
+.nav-cv-placeholder > span {
+  font-size: var(--text-small);
+}
+.mobile-cv-placeholder {
+  padding-block: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+}
+.mobile-cv-placeholder > span {
+  font-size: var(--text-label);
+}
+.contact-label-short {
+  display: none;
+}
+.visual-topline {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.visual-caption > div {
+  min-width: 0;
+}
+.visual-caption strong,
+.visual-caption p,
+.visual-hint {
+  font-size: var(--text-label);
+  line-height: 1.6;
+}
+.field-node span {
+  min-width: 0;
+}
+.project-preview {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: auto;
+  min-height: 460px;
+  padding: 24px;
+  gap: 18px;
+}
+.project-preview.preview-large {
+  min-height: 480px;
+  padding: 32px;
+}
+.project-preview .preview-eyebrow {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-size: var(--text-small);
+  line-height: 1.6;
+  gap: 10px 18px;
+}
+.project-preview .preview-eyebrow > span:last-child {
+  max-width: none;
+  flex: 1;
+  min-width: 120px;
+  text-align: right;
+}
+.project-preview .browser-preview {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+}
+.project-preview .browser-toolbar {
+  height: auto;
+  min-height: 30px;
+  font-size: var(--text-small);
+  padding-block: 6px;
+  line-height: 1.4;
+}
+.project-preview .project-screenshot {
+  aspect-ratio: 1.75;
+  object-fit: cover;
+  object-position: top;
+}
+.project-preview .preview-caption {
+  position: static;
+  margin-top: auto;
+  font-size: var(--text-small);
+  line-height: 1.7;
+  letter-spacing: 0.4px;
+}
+.project-preview .exchange-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px minmax(0, 0.8fr) 18px minmax(
+      0,
+      1fr
+    );
+  position: static;
+  width: 100%;
+  height: auto;
+  min-height: 210px;
+  max-width: none;
+  transform: none;
+  flex: 1;
+}
+.project-preview .facility,
+.project-preview .exchange-core,
+.project-preview .exchange-path {
+  width: auto;
+  min-width: 0;
+}
+.project-preview .facility {
+  padding: 16px 8px;
+  text-align: center;
+  gap: 10px;
+}
+.project-preview .facility > span,
+.project-preview .facility > small,
+.project-preview .exchange-core > small {
+  font-size: var(--text-small);
+  line-height: 1.5;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.project-preview .exchange-core > strong {
+  font-size: var(--text-label);
+}
+.project-preview .exchange-properties {
+  position: static;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px 16px;
+}
+.project-preview .exchange-properties > span {
+  font-size: var(--text-small);
+  line-height: 1.6;
+  white-space: normal;
+  gap: 6px;
+}
+.project-preview .exchange-properties svg {
+  width: 14px;
+}
+.accessibility-introduction,
+.accessibility-option-help,
+.accessibility-save-note,
+.accessibility-keyboard-note,
+.appearance-controls > p,
+.theme-option {
+  font-size: var(--text-label);
+}
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-preview {
+    min-height: 0;
+  }
+  .project-preview.preview-large {
+    min-height: 0;
+    padding: 24px;
+  }
+  .hmsi-preview.project-preview {
+    min-height: 400px;
+  }
+}
+@media (max-width: 600px) {
+  .dataset-stages {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .dataset-stages li {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    text-align: left;
+    padding: 12px;
+    column-gap: 12px;
+    row-gap: 4px;
+  }
+  .dataset-stages li > svg {
+    grid-row: 1 / 3;
+  }
+  .dataset-stages li > span {
+    grid-column: 2;
+  }
+  .contact-label-full {
+    display: none;
+  }
+  .contact-label-short {
+    display: inline;
+  }
+  .header-contact {
+    font-size: var(--text-label);
+    padding-inline: 12px;
+  }
+  .expertise-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .expertise-item {
+    padding: 22px;
+  }
+  .expertise-description {
+    min-height: 0;
+    max-width: none;
+  }
+  .globe-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .globe-wrap > svg {
+    grid-column: 1 / -1;
+  }
+  .field-node {
+    position: static;
+    padding: 10px;
+    justify-content: center;
+    font-size: var(--text-label);
+  }
+  .globe-coordinate {
+    display: none;
+  }
+  .visual-caption {
+    align-items: flex-start;
+  }
+  .project-preview,
+  .project-preview.preview-large {
+    padding: 20px;
+    gap: 16px;
+  }
+  .project-preview .browser-toolbar > span:last-child {
+    display: none;
+  }
+  .project-preview .exchange-visual {
+    grid-template-columns: minmax(0, 1fr) 14px minmax(0, 0.8fr) 14px minmax(
+        0,
+        1fr
+      );
+    min-height: 180px;
+  }
+  .project-preview .facility {
+    padding: 14px 5px;
+  }
+  .project-preview .core-icon {
+    width: 42px;
+    height: 52px;
+  }
+  .case-next {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 1100px) {
+  html[data-text-size="large"] .desktop-nav {
+    display: none;
+  }
+  html[data-text-size="large"] .mobile-menu {
+    display: flex;
+  }
+}

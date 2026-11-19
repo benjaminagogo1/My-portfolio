@@ -7,6 +7,7 @@ Preferences apply immediately and are saved under `benjamin-portfolio-accessibil
 ## Reading and motion
 
 - Reading typography uses relative `rem` units, including responsive breakpoints, so the larger-text preference and the browser's default font size actually affect content.
+- Default reading paragraphs are 16px, useful supporting text is 14px, and small labels are at least 12px at the standard browser font size. Phone expertise cards use a single column, and preview captions remain in normal flow as text grows.
 - System appearance follows the device's light or dark theme and reacts when that preference changes. Explicit Light and Dark choices override the device theme and persist across reloads and project pages.
 - The dark palette covers navigation, content, project diagrams, settings, and footer; higher contrast also supports the dark theme. The genuine project screenshot remains an unchanged source capture.
 - Larger text increases the root reading size by 20 percent. Fluid headings continue to respond to the available width.
