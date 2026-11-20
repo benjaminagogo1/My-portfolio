@@ -14,7 +14,7 @@ export const cvPath = process.env.NEXT_PUBLIC_CV_URL || null;
 // Paste each public deployment URL between the quotes when it is ready.
 // Leave values blank until you are ready to add each deployment URL.
 export const projectLiveUrls = {
-  nurseNg: "",
+  nurseNg: "https://nurse-ng.onrender.com/",
   hmsiApi: "",
   agroShield: "https://agroshield.com.ng/",
   igedeLanguageSi: "",
@@ -175,7 +175,7 @@ export const projects = z.array(projectSchema).parse([
       "Broader employer capabilities as the community becomes established",
       "AI-assisted recruitment discovery",
       "Evaluation of optional AI writing assistance and source-linked discovery",
-      "Further hosting and operational verification before a public launch",
+      "Further hosting and operational verification as the public application develops",
     ],
     repository: "https://github.com/benjaminagogo1/nurse-ng",
     liveUrl: projectLiveUrls.nurseNg || undefined,

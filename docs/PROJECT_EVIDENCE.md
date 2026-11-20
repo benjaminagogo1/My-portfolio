@@ -22,7 +22,7 @@ The featured screenshot was captured with Chrome from the actual public applicat
 
 The screenshot's background photograph is an existing Nurse.ng project asset. Its original credit is recorded in that repository's `app/static/img/CREDITS.txt`. This portfolio does not claim the pictured person is Benjamin.
 
-The owner has confirmed that deployment is ongoing. No public live application URL has been supplied or verified. The site links to the public repository and the local case study, preserving an editable deployment field instead of treating the example `nurse.ng` production configuration as a verified launch. The repository's AI integration proposal distinguishes AI-assisted development from planned member-facing model features.
+The owner supplied `https://nurse-ng.onrender.com/` as Nurse.ng's public application address on 20 November 2026. The project card and case study link to this address alongside the public repository. The screenshot remains a local application capture. The repository's AI integration proposal distinguishes AI-assisted development from planned member-facing model features.
 
 ## HMSI-API
 

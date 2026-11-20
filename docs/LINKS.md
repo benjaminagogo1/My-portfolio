@@ -6,7 +6,7 @@ The portfolio’s available links are active. Missing destinations have clearly 
 | ---------------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Public portfolio address           | `NEXT_PUBLIC_SITE_URL` in `.env.local` or hosting build settings                 | `https://your-portfolio.example` placeholder                                       |
 | CV PDF                             | `public/cv/otete-benjamin-agogo-cv.pdf`; optional `NEXT_PUBLIC_CV_PATH` override | View CV links in desktop navigation, the mobile menu, and Contact                  |
-| Nurse.ng live application          | `projectLiveUrls.nurseNg` near the top of `src/lib/content.ts`                   | Blank; ready for the owner to add the URL                                           |
+| Nurse.ng live application          | `projectLiveUrls.nurseNg` near the top of `src/lib/content.ts`                   | `https://nurse-ng.onrender.com/`                                                     |
 | HMSI-API public API demo           | `projectLiveUrls.hmsiApi` near the top of `src/lib/content.ts`                   | Blank; ready for the owner to add the URL                                           |
 | HMSI-API repository                | HMSI-API’s `repository` in `src/lib/content.ts`                                  | Repository access through Contact                                                  |
 | Igede Language SI repository       | Igede Language SI’s `repository` in `src/lib/content.ts`                         | Request GitHub access through Contact; the supplied URL is not publicly accessible |
@@ -41,7 +41,7 @@ All project deployment URLs are together near the top of `src/lib/content.ts`:
 
 ```ts
 export const projectLiveUrls = {
-  nurseNg: "",
+  nurseNg: "https://nurse-ng.onrender.com/",
   hmsiApi: "",
   agroShield: "https://agroshield.com.ng/",
   igedeLanguageSi: "",
