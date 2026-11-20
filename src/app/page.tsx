@@ -11,6 +11,7 @@ import {
   Linkedin,
   Facebook,
   Leaf,
+  Waypoints,
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -23,23 +24,13 @@ import { identity, projects } from "@/lib/content";
 import { EmailContact } from "@/components/email-contact";
 
 const journey = [
-  {
-    title: "Healthcare background",
-    description:
-      "A nursing background brings a practical perspective to engineering.",
-    icon: HeartPulse,
-  },
-  {
-    title: "HMSI-API foundation",
-    description:
-      "Referral workflows, facility-scoped access, and audit history.",
-    icon: Network,
-  },
-  {
-    title: "Agro-Shield · 2026",
-    description: "A team project for the Idoma Centenary Plus Hackathon.",
-    icon: Leaf,
-  },
+  "Software engineering",
+  "Full-stack development",
+  "Systems & APIs",
+  "AI & machine learning",
+  "Embedded systems",
+  "IoT & connected devices",
+  "Real-world systems",
 ];
 
 export default function Home() {
@@ -160,21 +151,34 @@ export default function Home() {
                   An engineering mindset.
                   <br />A <em>human perspective.</em>
                 </h2>
+                <div className="about-symbol" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                  <HeartPulse aria-hidden="true" size={38} strokeWidth={1.2} />
+                </div>
               </div>
               <div className="about-copy">
                 <p className="about-lead">
-                  I build full-stack applications and backend APIs with people
-                  in mind.
+                  I’m interested in how complete systems work—and how they can
+                  work better for people.
                 </p>
                 <p>
-                  My nursing and healthcare background shapes how I approach
-                  access, information, and continuity of care. I bring that
-                  perspective to software for healthcare and other practical
-                  domains. My fellowship programme is preparing me for AI-native
-                  engineering.
+                  My work starts with software engineering: understanding a
+                  problem, connecting the pieces, and building something useful.
+                  I’m developing across full-stack applications and backend
+                  APIs, while exploring AI and the possibilities of connected
+                  devices. I use AI-assisted development alongside source review
+                  and automated checks to refine practical software.
                 </p>
-                <a href="#projects" className="inline-link">
-                  See that perspective in my projects{" "}
+                <p>
+                  My nursing and healthcare background brings a practical
+                  perspective to that work. It shapes the questions I ask about
+                  access, information, and continuity of care—and my interest in
+                  technology that fits the people using it.
+                </p>
+                <a href="#journey" className="inline-link">
+                  Explore my engineering direction{" "}
                   <ArrowUpRight aria-hidden="true" size={16} />
                 </a>
               </div>
@@ -264,14 +268,9 @@ export default function Home() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Live application{" "}
+                          {project.liveLabel}{" "}
                           <ArrowUpRight aria-hidden="true" size={13} />
                         </a>
-                      )}
-                      {!project.liveUrl && (
-                        <span className="link-placeholder">
-                          Live demo coming soon
-                        </span>
                       )}
                       {project.repository ? (
                         <a
@@ -352,33 +351,53 @@ export default function Home() {
             <Reveal>
               <div className="section-label">
                 <span>04 / ENGINEERING JOURNEY</span>
-                <span>LEARNING THROUGH PRACTICAL WORK</span>
+                <span>AN EXPANDING FIELD OF POSSIBILITIES</span>
               </div>
               <div className="journey-heading">
                 <h2 id="journey-title">
-                  From healthcare
+                  From lines of code
                   <br />
-                  to <em>useful software.</em>
+                  to <em>real-world systems.</em>
                 </h2>
                 <p>
-                  My fellowship programme is preparing me for AI-native
-                  engineering, alongside the practical work shown here.
+                  My direction is to understand the whole system—from the
+                  interface and API to intelligence and connected devices. These
+                  are related interests, not a checklist of completed
+                  milestones.
                 </p>
               </div>
               <ol className="journey-path">
-                {journey.map(({ title, description, icon: Icon }, index) => (
-                  <li key={title}>
+                {journey.map((item, index) => (
+                  <li key={item}>
                     <div className="journey-point">
                       <span>{String(index + 1).padStart(2, "0")}</span>
-                      <Icon aria-hidden="true" size={18} />
+                      {index === journey.length - 1 ? (
+                        <Waypoints aria-hidden="true" size={20} />
+                      ) : (
+                        <ArrowRight aria-hidden="true" size={16} />
+                      )}
                     </div>
-                    <div className="journey-entry">
-                      <h3>{title}</h3>
-                      <p>{description}</p>
-                    </div>
+                    <h3>{item}</h3>
                   </li>
                 ))}
               </ol>
+              <div className="journey-applications">
+                <span>WHERE IT CAN LEAD</span>
+                <div>
+                  <span>
+                    <HeartPulse aria-hidden="true" size={16} />
+                    Healthcare
+                  </span>
+                  <span>
+                    <Leaf aria-hidden="true" size={16} />
+                    Agriculture
+                  </span>
+                  <span>
+                    <Waypoints aria-hidden="true" size={16} />
+                    Other real-world domains
+                  </span>
+                </div>
+              </div>
             </Reveal>
           </div>
         </section>

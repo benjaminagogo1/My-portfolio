@@ -1,5 +1,6 @@
 import { chromium } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
+import { projects } from "../src/lib/content.ts";
 
 const browser = await chromium.launch({
   executablePath:
@@ -32,9 +33,10 @@ try {
       }, theme);
     for (const [name, route] of [
       ["home", "/"],
-      ["nurse-ng", "/projects/nurse-ng/"],
-      ["hmsi-api", "/projects/hmsi-api/"],
-      ["agro-shield", "/projects/agro-shield/"],
+      ...projects.map((project) => [
+        project.slug,
+        `/projects/${project.slug}/`,
+      ]),
     ]) {
       await page.goto(`${origin}${route}`);
       await page.evaluate(() => document.fonts.ready);

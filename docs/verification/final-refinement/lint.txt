@@ -1,0 +1,4 @@
+
+> otete-benjamin-agogo-portfolio@1.0.0 lint
+> eslint .
+

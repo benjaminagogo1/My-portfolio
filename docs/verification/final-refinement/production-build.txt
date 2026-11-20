@@ -1,0 +1,38 @@
+
+> otete-benjamin-agogo-portfolio@1.0.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+✓ Running next.config.ts took 699ms
+- Experiments (use with caution):
+  · cpus: 2
+  ⨯ useTypeScriptCli
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 29.9s
+  Running TypeScript ...
+  Finished TypeScript in 16.9s ...
+  Collecting page data using 2 workers ...
+  Generating static pages using 2 workers (0/9) ...
+  Generating static pages using 2 workers (2/9) 
+  Generating static pages using 2 workers (4/9) 
+  Generating static pages using 2 workers (6/9) 
+✓ Generating static pages using 2 workers (9/9) in 2.8s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├   /projects/[slug]
+│ ├ ● /projects/nurse-ng
+│ ├ ● /projects/hmsi-api
+│ ├ ● /projects/agro-shield
+│ └ ● /projects/igede-language-si
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

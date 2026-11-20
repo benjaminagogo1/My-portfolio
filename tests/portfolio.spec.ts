@@ -1,6 +1,9 @@
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { projects } from "../src/lib/content";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { join } from "node:path";
 
 const projectRoutes = projects.map((project) => `/projects/${project.slug}/`);
 
@@ -172,7 +175,7 @@ test("navigation, all case studies, contact links, and back-to-top work", async 
     .click();
   await expect(page).toHaveURL(/projects\/hmsi-api/);
   await expect(page.locator(".case-sidebar")).toContainText(
-    "currently unavailable publicly",
+    "private repository",
   );
   await page
     .locator(".case-next")
@@ -200,7 +203,7 @@ test("navigation, all case studies, contact links, and back-to-top work", async 
     .click();
   await expect(page).toHaveURL(/projects\/igede-language-si/);
   await expect(page.locator(".case-role")).toHaveText(
-    "Project Lead and Head of Communication",
+    "Project Lead & Data Collection Platform Co-Developer",
   );
   await expect(page.locator(".case-former-name")).toHaveText(
     "Formerly Igede AI",
@@ -252,6 +255,48 @@ test("WCAG accessibility and keyboard focus in expanded navigation", async ({
     await expect(
       page.getByRole("navigation", { name: "Main navigation" }),
     ).toBeVisible();
+  }
+});
+
+test("CV links serve the current PDF across navigation and case studies", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const contactCV = page.locator(".contact-actions").getByRole("link", {
+    name: "View CV",
+    exact: true,
+  });
+  const href = await contactCV.getAttribute("href");
+  expect(href).toBeTruthy();
+  const url = new URL(href!, "http://localhost");
+  const pdf = readFileSync(join("public", url.pathname));
+  expect(url.searchParams.get("v")).toBe(
+    createHash("sha256").update(pdf).digest("hex").slice(0, 12),
+  );
+  await expect(contactCV).toHaveAttribute("target", "_blank");
+  await expect(contactCV).toHaveAttribute("rel", "noopener noreferrer");
+  const response = await page.request.get(href!);
+  expect(response.ok()).toBe(true);
+  expect(response.headers()["content-type"]).toContain("application/pdf");
+  expect(await response.body()).toEqual(pdf);
+  expect(pdf.subarray(0, 5).toString()).toBe("%PDF-");
+  const menu = page.getByRole("button", { name: "Open navigation" });
+  if (await menu.isVisible()) {
+    await menu.click();
+    const mobileCV = page
+      .getByRole("navigation", { name: "Mobile navigation" })
+      .getByRole("link", { name: /View CV/ });
+    await expect(mobileCV).toHaveAttribute("href", href!);
+    await expect(mobileCV).toHaveAttribute("target", "_blank");
+    await page.keyboard.press("Escape");
+    await expect(menu).toBeFocused();
+  }
+  for (const route of ["/", ...projectRoutes, "/404.html"]) {
+    await page.goto(route);
+    await expect(page.locator('.desktop-nav a[href^="/cv/"]')).toHaveAttribute(
+      "href",
+      href!,
+    );
   }
 });
 

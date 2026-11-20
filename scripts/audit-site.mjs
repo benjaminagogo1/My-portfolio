@@ -1,6 +1,7 @@
 import { chromium } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { writeFile } from "node:fs/promises";
+import { projects } from "../src/lib/content.ts";
 
 const origin = process.argv[2] || "http://127.0.0.1:3000";
 const large = process.argv[3] === "large";
@@ -34,9 +35,7 @@ try {
   });
   for (const route of [
     "/",
-    "/projects/nurse-ng/",
-    "/projects/hmsi-api/",
-    "/projects/agro-shield/",
+    ...projects.map((project) => `/projects/${project.slug}/`),
     "/404.html",
   ]) {
     await page.goto(`${origin}${route}`);

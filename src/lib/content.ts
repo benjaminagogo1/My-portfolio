@@ -9,7 +9,16 @@ export const identity = {
   facebook: "https://www.facebook.com/profile.php?id=61573088355413",
 };
 
-export const cvPath = process.env.NEXT_PUBLIC_CV_PATH?.trim() || null;
+export const cvPath = process.env.NEXT_PUBLIC_CV_URL || null;
+
+// Paste each public deployment URL between the quotes when it is ready.
+// Leave values blank until you are ready to add each deployment URL.
+export const projectLiveUrls = {
+  nurseNg: "",
+  hmsiApi: "",
+  agroShield: "https://agroshield.com.ng/",
+  igedeLanguageSi: "",
+};
 
 export const navigation = [
   { label: "Home", id: "home" },
@@ -64,6 +73,7 @@ const projectSchema = z.object({
   category: z.string(),
   domain: z.string(),
   status: z.string(),
+  statusNote: z.string(),
   headline: z.string(),
   description: z.string(),
   problem: z.string(),
@@ -89,6 +99,7 @@ const projectSchema = z.object({
     .default([]),
   repository: z.url().nullable(),
   liveUrl: z.url().optional(),
+  liveLabel: z.string().default("Live application"),
   repositoryNote: z.string().optional(),
   repositoryRequestLabel: z.string().optional(),
   preview: previewSchema,
@@ -101,14 +112,19 @@ export const projects = z.array(projectSchema).parse([
     name: "Nurse.ng",
     category: "Healthcare · Community platform",
     domain: "Healthcare technology",
-    status: "In development",
+    status: "MVP Completed",
+    statusNote:
+      "MVP for a professional networking and recruitment platform for nurses. Further employer capabilities and AI-assisted features are planned.",
     headline: "A stronger connection for the people who care.",
     description:
-      "A healthcare technology initiative connecting nurses with their professional community, career opportunities, and one another.",
+      "A professional community platform connecting nurses through discussions, professional profiles, career opportunities, and private messaging.",
     problem:
       "Nursing professionals need a useful place to discover opportunities, share knowledge, and build professional connections. These needs are often spread across separate channels.",
     solution:
-      "Build a community-centered platform for the nursing ecosystem. The current application brings discussions, professional profiles, connections, opportunities, and messaging into one member workspace.",
+      "The FastAPI application brings discussions, professional profiles, connections, opportunities, and messaging into one member workspace. Profiles start as private drafts, members control which fields become public, and applications require consent before sharing contact details.",
+    role: "Project Initiator & Lead Developer",
+    contribution:
+      "I developed the community application across member-facing pages and backend workflows, including profiles, discussions, connections, applications, and private messaging. My work includes private-by-default profiles, field-level visibility, consent-based contact sharing, and verification of profile visibility and community workflows.",
     engineering: {
       title: "Discovery with member-controlled visibility",
       approach:
@@ -145,6 +161,8 @@ export const projects = z.array(projectSchema).parse([
       "Jinja2",
       "PostgreSQL",
       "JavaScript",
+      "Alembic",
+      "JWT",
     ],
     implemented: [
       "Community discussions, replies, search, and discussion follows",
@@ -156,10 +174,11 @@ export const projects = z.array(projectSchema).parse([
     planned: [
       "Broader employer capabilities as the community becomes established",
       "AI-assisted recruitment discovery",
+      "Evaluation of optional AI writing assistance and source-linked discovery",
       "Further hosting and operational verification before a public launch",
     ],
     repository: "https://github.com/benjaminagogo1/nurse-ng",
-    liveUrl: undefined, // Replace with the public application URL when available.
+    liveUrl: projectLiveUrls.nurseNg || undefined,
     preview: {
       kind: "screenshot",
       name: "NURSE.NG",
@@ -183,14 +202,16 @@ export const projects = z.array(projectSchema).parse([
       },
     },
     evidence:
-      "Reviewed the public repository README, dependency manifest, community routes, and application templates in November 2026. Preview captured from the actual public-page template running locally with an isolated database. This is development work; no adoption or live deployment is asserted.",
+      "Reviewed the public main branch at df1394b on 19 November 2026, including its dependency manifest, community routes, profile and messaging workflows, tests, and AI integration proposal. The preview is a genuine local capture. Member-facing model-provider integration remains proposed; no adoption figures are asserted.",
   },
   {
     slug: "hmsi-api",
     name: "HMSI-API",
     category: "Healthcare · Systems interoperability",
     domain: "Healthcare technology",
-    status: "API foundation implemented",
+    status: "In Development",
+    statusNote:
+      "Referral and clinical information exchange API in development. The referral workflow is tested with synthetic data; the clinician interface, offline synchronization, and FHIR mapping are planned.",
     headline: "Care moves forward when information can follow.",
     description:
       "A referral and clinical information exchange API addressing the gaps between healthcare facilities, with continuity of care at its core.",
@@ -198,6 +219,9 @@ export const projects = z.array(projectSchema).parse([
       "When patients move between facilities, relevant clinical information can become fragmented. A receiving team needs an appropriate medical summary and a clear referral history.",
     solution:
       "Start with a defined referral workflow between two facilities, carrying the minimum relevant clinical information. The implemented API coordinates referral creation, receipt, clinical decisions, returned outcomes, and closure within a facility-scoped system.",
+    role: "Project Initiator & Lead Developer",
+    contribution:
+      "I implemented the referral API foundation: lifecycle transitions, JWT authentication, facility-scoped authorization, audit records, optimistic version checks, idempotent submission, and the outbox dispatcher. My work includes automated checks for repeated requests, stale updates, and access boundaries using synthetic data.",
     engineering: {
       title: "Complete the referral workflow before the client",
       approach:
@@ -239,23 +263,27 @@ export const projects = z.array(projectSchema).parse([
       "Clinical, legal, and operational validation before use with real patient information",
     ],
     repository: null,
-    liveUrl: undefined, // Replace with the public application URL when available.
+    liveUrl: projectLiveUrls.hmsiApi || undefined,
+    liveLabel: "API demo",
+    repositoryRequestLabel: "Request GitHub access",
     repositoryNote:
-      "The supplied repository, github.com/benjaminagogo1/HMSI-API, is currently unavailable publicly. Implementation details were verified from the local repository. Contact Benjamin for repository access.",
+      "HMSI-API is a private repository and is not publicly accessible. Its source was reviewed with owner-authorized access. Contact Benjamin to request GitHub access.",
     preview: {
       kind: "architecture",
       description:
         "An explanatory diagram of the referral exchange workflow. The clinician-facing interface is planned.",
     },
     evidence:
-      "Reviewed the local repository README, Python dependency manifest, referral endpoints, authentication modules, lifecycle specification, and outbox dispatcher in November 2026. The visual is an explanatory architecture diagram, not a product screenshot. Development is restricted to synthetic data; FHIR integration and independent hospital deployments are not implemented.",
+      "Reviewed main branch 40885e9 with owner-authorized access on 19 November 2026, corroborating the dependency manifest, referral endpoints, authentication, lifecycle specification, tests, and outbox dispatcher. The diagram explains the architecture. Phase 1 uses synthetic data; FHIR integration, the clinician interface, and independently deployed hospital-to-hospital operation are not established.",
   },
   {
     slug: "agro-shield",
     name: "Agro-Shield",
     category: "Agriculture · Team project",
     domain: "Agricultural technology",
-    status: "In development",
+    status: "Completed",
+    statusNote:
+      "A collaborative hackathon project connecting farmers and buyers through produce management, trading, and agricultural guidance.",
     headline: "Better visibility, from stored produce to the marketplace.",
     description:
       "A team-built agricultural platform bringing together produce management, farmer–buyer trading, and AI-assisted guidance to address post-harvest losses and limited market access.",
@@ -263,9 +291,9 @@ export const projects = z.array(projectSchema).parse([
       "Farmers need clearer visibility over stored produce, useful agricultural information, and direct access to buyers. Fragmented records and market information make it harder to plan sales and manage harvests.",
     solution:
       "Bring produce inventory, trading workflows, and agricultural guidance into one platform. Farmers can maintain stock and listings; buyers can browse, negotiate, and place orders. Shared services connect communication, market context, AI assistance, and payment and delivery workflows.",
-    role: "Frontend Engineer",
+    role: "Frontend Lead",
     contribution:
-      "I worked as the Frontend Engineer on Team Agro-Shield. The frontend uses HTML, CSS, and JavaScript with Go-rendered templates to present the platform’s farmer and buyer workflows.",
+      "I led the frontend development team within Team Agro-Shield's collaborative hackathon project. I contributed interfaces using JavaScript, HTML, CSS, and Go-rendered templates, coordinated frontend implementation, and worked with teammates on interface requirements and feature scope for marketplace, produce management, and AI-assisted guidance workflows.",
     engineering: {
       title: "Connect the browser interface to domain services",
       approach:
@@ -295,15 +323,15 @@ export const projects = z.array(projectSchema).parse([
         href: "https://github.com/etoosammy01/Agro-Shield/tree/main/frontend/js",
       },
     ],
-    liveUrl: "https://agroshield.com.ng/",
+    liveUrl: projectLiveUrls.agroShield || undefined,
     technologies: [
-      "Go",
-      "PostgreSQL",
       "JavaScript",
-      "Gemini",
-      "pgx",
       "HTML / CSS",
       "Go templates",
+      "Go",
+      "PostgreSQL",
+      "Gemini",
+      "pgx",
       "Groq / OpenRouter",
       "Flutterwave",
     ],
@@ -343,7 +371,7 @@ export const projects = z.array(projectSchema).parse([
         "A genuine browser capture of the repository’s public landing-page template and marketing assets, served locally. It contains no private member data or uploaded profile images.",
     },
     evidence:
-      "Reviewed public GitHub commit b12b4d3, the README, go.mod, registered Go routes, backend services and PostgreSQL repositories, frontend templates, and public branding in November 2026. Benjamin confirmed his Frontend Engineer role and supplied agroshield.com.ng; its public landing page was verified in November 2026. AI and payment capabilities depend on configured external providers; no live financial transactions, adoption figures, or agricultural outcomes are asserted.",
+      "Reviewed public main branch b12b4d3 on 19 November 2026, including the README, Go manifest, routes, services, PostgreSQL repositories, frontend templates, and public branding. Benjamin's completed contribution was frontend engineering. The team's AI and payment flows use configured external providers; USSD rollout remains in progress. The supplied agroshield.com.ng landing page was verified, without asserting live financial transactions, adoption figures, or agricultural outcomes.",
   },
   {
     slug: "igede-language-si",
@@ -351,7 +379,9 @@ export const projects = z.array(projectSchema).parse([
     formerName: "Igede AI",
     category: "AI · NLP · Language Preservation",
     domain: "Igede language technology",
-    status: "In Development",
+    status: "In development",
+    statusNote:
+      "The community data-collection and review platform supports ongoing dataset collection. Chatbot and bidirectional translation development are planned for subsequent phases.",
     headline: "Preserve • Document • Empower • Through Technology",
     description:
       "Igede Language SI is a community-driven initiative that uses artificial intelligence and technology to preserve, document, and advance Igede language technology.",
@@ -359,9 +389,9 @@ export const projects = z.array(projectSchema).parse([
       "Preserving Igede and developing useful language technology require structured examples, accessible ways for speakers to contribute, and a consistent process for reviewing language data. The initiative brings those needs into one community-led effort.",
     solution:
       "The project's long-term vision is to develop an English–Igede chatbot and bidirectional translation system. To achieve this, we are building a structured, community-verified Igede language dataset that can serve as a foundation for future Natural Language Processing (NLP) research and development.",
-    role: "Project Lead and Head of Communication",
+    role: "Project Lead & Data Collection Platform Co-Developer",
     contribution:
-      "I serve as the Project Lead and Head of Communication for Igede Language SI. I provide project direction, coordinate team activities, contribute to strategic planning, oversee team communication, and help drive the project's vision and objectives. I am also involved in shaping the frontend experience of the data collection platform. My responsibilities include coordinating team contributions, facilitating collaboration, communicating project updates, and helping ensure that our development efforts remain aligned with the project's long-term vision.",
+      "I lead the Igede Language SI initiative, organise team activities, delegate responsibilities, and monitor project progress. I coordinate meetings, communicate progress updates, and document project activities. I collaborated with another developer to develop the community data collection platform, contributing substantially to its conceptualisation and ideas. I currently oversee the community data collection phase; chatbot and translation components are planned for subsequent development.",
     teamDescription:
       "A community-driven initiative bringing together the project team, Igede speakers, and contributors to preserve, document, and advance Igede language technology.",
     technologies: [
@@ -412,8 +442,8 @@ export const projects = z.array(projectSchema).parse([
     repository: null,
     repositoryRequestLabel: "Request GitHub access",
     repositoryNote:
-      "The supplied repository, github.com/benjaminagogo1/Igede-language-AI, is not publicly accessible. Its renamed local checkout was available for source review. Contact Benjamin to request GitHub access.",
-    liveUrl: undefined, // Add a verified public application URL when available.
+      "Igede Language SI's repository is private and is not publicly accessible. Its source was reviewed with owner-authorized access. Contact Benjamin to request GitHub access.",
+    liveUrl: projectLiveUrls.igedeLanguageSi || undefined,
     preview: {
       kind: "language",
       name: "IGEDE LANGUAGE SI",
@@ -423,7 +453,7 @@ export const projects = z.array(projectSchema).parse([
         "An explanatory illustration of the community contribution, review, and dataset workflow. It represents the initiative’s direction, not a product screenshot or a completed chatbot.",
     },
     evidence:
-      "Reviewed the available local checkout at commit 2d2d628, including requirements.txt, the Flask application, PostgreSQL schema and database layer, submission validators, frontend templates and scripts, and tests in November 2026. The supplied GitHub URL and the renamed repository endpoint both returned 404 to unauthenticated requests. Benjamin’s Project Lead and Head of Communication role and frontend involvement were supplied by the owner. No dataset volume, trained model, translation accuracy, or public deployment is asserted.",
+      "Reviewed private main branch 9619ec9 with owner-authorized access on 19 November 2026, corroborating the Flask manifest and available application, PostgreSQL schema, validators, frontend, and tests. Benjamin confirmed his role as Project Lead & Data Collection Platform Co-Developer. The repository documents chatbot and translation development as future work; no dataset volume, trained model, or translation accuracy is asserted.",
   },
 ]);
 
@@ -460,11 +490,11 @@ export const expertise = [
   {
     title: "AI-native engineering",
     icon: "brain",
-    description: "Developing through my fellowship programme.",
+    description: "Applying AI within practical engineering workflows.",
     detail:
-      "My fellowship programme is preparing me toward an AI-Native Engineer role. I’m developing that direction alongside full-stack applications, backend APIs, and the practical engineering work shown in my projects.",
-    tools: "Python · AI integration · Responsible AI",
-    status: "Fellowship in progress",
+      "I use AI-assisted development to explore implementations and refine code, then check changes through source review and automated tests. Agro-Shield uses configured AI providers; I led the frontend team and contributed to its interfaces. Igede Language SI builds the language-data foundation for planned chatbot and translation work. Model training and embedded AI remain areas of development.",
+    tools: "AI-assisted development · Python · AI integration",
+    status: "Developing",
   },
   {
     title: "Embedded systems & IoT",

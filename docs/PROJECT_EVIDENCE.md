@@ -1,6 +1,10 @@
 # Content and asset evidence
 
-Reviewed on 17–18 November 2026. Personal copy follows the user's supplied identity and [public GitHub profile README](https://github.com/benjaminagogo1/benjaminagogo1). No employment dates, proficiency levels, qualifications, adoption figures, or testimonials were invented.
+Reviewed on 17–19 November 2026. Personal copy follows the user's supplied identity, confirmed responsibilities and education, updated CV, and [public GitHub profile README](https://github.com/benjaminagogo1/benjaminagogo1). No employment dates, proficiency levels, qualifications beyond supplied information, adoption figures, or testimonials were invented.
+
+The final authenticated repository review checked the current main branches and manifests: Nurse.ng `df1394b`, HMSI-API `40885e9`, Agro-Shield `b12b4d3`, and Igede Language SI `9619ec9`. GitHub metadata confirmed that HMSI-API and Igede Language SI are private repositories. The owner's latest clarification confirms **Project Initiator & Lead Developer** for Nurse.ng and HMSI-API, **Frontend Lead** for Agro-Shield, and **Project Lead & Data Collection Platform Co-Developer** for Igede Language SI. The fellowship title is **AI Engineering Fellow**.
+
+The owner requests simple project labels: Nurse.ng **MVP Completed**, Agro-Shield **Completed** as a collaborative hackathon project, and HMSI-API and Igede Language SI in development. Further capabilities remain documented in each project's planned and in-progress sections. Deployment URL fields remain blank for the owner to fill in; the website shows a live link once its URL is supplied, without deployment-status placeholder text. The editable fields are grouped in `projectLiveUrls` near the top of `src/lib/content.ts`; the portfolio origin uses `NEXT_PUBLIC_SITE_URL`. The editable CV also leaves blank URL spaces for Nurse.ng, HMSI-API, and Igede Language SI.
 
 ## Nurse.ng
 
@@ -18,13 +22,13 @@ The featured screenshot was captured with Chrome from the actual public applicat
 
 The screenshot's background photograph is an existing Nurse.ng project asset. Its original credit is recorded in that repository's `app/static/img/CREDITS.txt`. This portfolio does not claim the pictured person is Benjamin.
 
-No public live application URL was verified. The site links to the public repository and the local case study instead of treating the example `nurse.ng` production configuration as a verified launch.
+The owner has confirmed that deployment is ongoing. No public live application URL has been supplied or verified. The site links to the public repository and the local case study, preserving an editable deployment field instead of treating the example `nurse.ng` production configuration as a verified launch. The repository's AI integration proposal distinguishes AI-assisted development from planned member-facing model features.
 
 ## HMSI-API
 
 Supplied GitHub location: `https://github.com/benjaminagogo1/HMSI-API`
 
-That URL and the GitHub repository API returned 404. A local Git checkout at `/home/recoding/HMSI-API` was available and reviewed without modifying it. Sources included:
+The unauthenticated URL and API review on 17–18 November returned 404. The authenticated review on 19 November confirmed a private repository and checked its current main branch and dependency manifest. A local Git checkout at `/home/recoding/HMSI-API` was also reviewed without modifying it. Sources included:
 
 - `README.md`: Phase 1 referral vertical slice complete; clinician client, offline sync, FHIR, and next-phase work have not started; synthetic data only.
 - `services/api/pyproject.toml`: Python, FastAPI, SQLAlchemy, Alembic, Pydantic settings, and PyJWT.
@@ -35,13 +39,13 @@ That URL and the GitHub repository API returned 404. A local Git checkout at `/h
 
 The portfolio diagram explains a referral exchange. It is labeled as an architecture visual, not a screenshot. Existing hospital system adapters, FHIR R4 mapping, independent facility deployment, clinician interfaces, and offline synchronization are described as planned.
 
-To avoid sending visitors to a known 404, the visible repository action opens the contact section to request access. The supplied address is recorded in project notes as plain text. Once the public repository becomes available, set its URL in `src/lib/content.ts` and remove the unavailable-access note; the project links update automatically.
+Because the repository is private, the visible repository action opens Contact to request GitHub access. If it becomes public, set its `repository` URL in `src/lib/content.ts` and update the availability note. Its deployment field accepts the real public API documentation or demo address when supplied; the clinician interface remains future work.
 
 ## Agro-Shield
 
 Public repository: <https://github.com/etoosammy01/Agro-Shield>. The supplied `etoosammy01-oss/Agro-Shield` address redirects to this canonical repository. Reviewed the public `main` snapshot at [commit b12b4d3032a64656db0b33738bfb9b82f231cd13](https://github.com/etoosammy01/Agro-Shield/tree/b12b4d3032a64656db0b33738bfb9b82f231cd13), downloaded from GitHub on 18 November 2026.
 
-The README identifies Team Agro-Shield and the Idoma Centenary Plus Hackathon 2026. The owner confirmed that he was the Frontend Engineer. The portfolio displays that role and describes the verified frontend stack; it does not attribute the team’s backend services or measured agricultural outcomes to him.
+The README identifies Team Agro-Shield and the Idoma Centenary Plus Hackathon 2026. The owner confirmed that he was the Frontend Lead, led the frontend development team, coordinated implementation, and contributed interfaces using JavaScript, HTML, CSS, and Go-rendered templates. The hackathon project is presented as completed, with further USSD and integration work documented separately. The portfolio puts frontend technologies first and attributes individual interface work and team leadership to Benjamin.
 
 The review included:
 
@@ -59,9 +63,9 @@ The owner supplied `https://agroshield.com.ng/` as the live application. Its pub
 
 ## Igede Language SI
 
-The owner supplied `https://github.com/benjaminagogo1/Igede-language-AI` and identified the project’s current name as **Igede Language SI**, formerly **Igede AI**. The latest role clarification is **Project Lead and Head of Communication**, covering project direction, coordination, planning, communication, collaboration, and involvement in shaping the data-collection frontend. The portfolio does not identify the owner as the sole founder, lead AI engineer, or developer of the entire system.
+The owner supplied `https://github.com/benjaminagogo1/Igede-language-AI` and identified the project’s current name as **Igede Language SI**, formerly **Igede AI**. The latest role clarification is **Project Lead & Data Collection Platform Co-Developer**, covering project direction, team coordination, delegation, progress monitoring, meetings, updates, and documentation. The owner confirmed that he collaborated with another developer on the data collection platform and contributed substantially to its conceptualisation and ideas. He currently oversees community data collection; chatbot and translation development remain planned.
 
-The supplied GitHub repository endpoint and the renamed `Igede-language-SI-formerly-called-AI-` endpoint both returned HTTP 404 to unauthenticated requests on 18 November 2026. This establishes that the repository is not publicly accessible; it does not independently establish whether it is private, renamed, or unavailable for another reason. The project’s GitHub action therefore requests access through Contact. The supplied repository address is recorded in notes as text, rather than presented as a public source link.
+The supplied GitHub repository endpoint and renamed endpoint returned 404 to unauthenticated requests on 18 November. Authenticated metadata and manifest review on 19 November confirmed that the canonical `benjaminagogo1/Igede-language-AI` repository is private. The GitHub action therefore requests access through Contact. A public source link is not implied by the owner's ability to review the private repository.
 
 An available, clean local checkout at `/home/recoding/Igede-language-SI-formerly-called-AI-`, commit `2d2d628`, was reviewed without running or modifying its application or databases. Its remote points to the renamed repository. An older local checkout at `/home/recoding/igede-clean` documents an earlier SQLite prototype; the portfolio uses the newer, verified PostgreSQL implementation.
 
@@ -79,9 +83,11 @@ The new preview and sharing artwork are original HTML/CSS illustrations of the c
 
 ## Expertise and contact
 
-Python, Go, JavaScript, FastAPI, HTML, CSS, PostgreSQL, Docker, Git, and Linux are supported by the user's public profile or reviewed projects. The owner confirmed that his fellowship programme is preparing participants toward AI-Native Engineer roles and explicitly selected **AI-Native Engineer** as his displayed title. About, Expertise, and Journey record the fellowship as in progress. The institution, qualification, curriculum, and completion date have not been supplied. Embedded systems and IoT remain a longer-term learning direction; no unsupported hardware platform or ML library is listed as a proficiency.
+Python, Go, JavaScript, FastAPI, HTML, CSS, PostgreSQL, Docker, Git, and Linux are supported by the user's profile or reviewed projects. The owner selected **AI-Native Engineer** as his identity. About and Expertise explain the documented AI-assisted development workflow: source review and automated checks accompany assistant-supported implementation. Agro-Shield's model-provider integrations are team platform capabilities; Benjamin's individual role is frontend engineering. Igede's collection platform precedes future chatbot and translation work. Embedded systems, IoT and model training remain learning directions; no unsupported hardware platform or ML library is listed as a proficiency.
 
-The GitHub, LinkedIn, and Facebook links match the user's supplied URLs and public profile README. The owner supplied `josephbenjamin046@gmail.com` for public contact; the portfolio displays it, provides a Copy email action, and opens the visitor’s email application through a `mailto:` link. At the owner’s request, navigation and Contact show clearly labeled CV placeholders until the finished PDF is configured. There is no contact form or simulated message submission.
+The CV records the owner-confirmed B.Sc. in Nursing Science from Benue State University, graduated in 2025, and **AI Engineering Fellow** at Talent Nation Fellowship (formerly Learn2Earn), retaining the dates of 2025–Present. The homepage and engineering journey describe a durable professional direction rather than a temporary fellowship status. Healthcare and agriculture are application domains within that broader engineering identity.
+
+The GitHub, LinkedIn, and Facebook links match the user's supplied URLs and profile README. The owner supplied `josephbenjamin046@gmail.com`; the portfolio displays it, provides Copy email, and opens the visitor's email application through `mailto:`. The verified two-page, tagged PDF CV is linked from desktop navigation, the mobile menu and Contact. Its URL includes an automatically computed file-content version. The editable DOCX and public PDF use the same confirmed roles and scoped completion labels. There is no contact form or simulated message submission.
 
 ## Original portfolio assets
 

@@ -105,11 +105,9 @@ export default async function ProjectPage({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Live application <ArrowUpRight aria-hidden="true" size={13} />
+                {project.liveLabel}{" "}
+                <ArrowUpRight aria-hidden="true" size={13} />
               </a>
-            )}
-            {!project.liveUrl && (
-              <span className="link-placeholder">Live demo coming soon</span>
             )}
             {project.repository ? (
               <a
@@ -241,6 +239,7 @@ export default async function ProjectPage({
             </div>
             <aside className="case-sidebar">
               <h2>Project notes</h2>
+              <p>{project.statusNote}</p>
               <p>Technologies verified from the repository:</p>
               <div className="case-tech-list">
                 {project.technologies.map((tech) => (

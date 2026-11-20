@@ -36,6 +36,7 @@ export function EmailContact() {
             href={cvPath}
             target="_blank"
             rel="noopener noreferrer"
+            title="Open the PDF CV in a new tab"
             className={buttonVariants({ variant: "outline" })}
           >
             View CV <ArrowUpRight aria-hidden="true" />

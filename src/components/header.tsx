@@ -71,7 +71,12 @@ export function Header({ home = false }: { home?: boolean }) {
             </a>
           ))}
           {cvPath && (
-            <a href={cvPath} target="_blank" rel="noopener noreferrer">
+            <a
+              href={cvPath}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open the PDF CV in a new tab"
+            >
               View CV
             </a>
           )}
@@ -118,7 +123,12 @@ export function Header({ home = false }: { home?: boolean }) {
               ))}
               {cvPath && (
                 <DialogClose asChild>
-                  <a href={cvPath} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={cvPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open the PDF CV in a new tab"
+                  >
                     <span>CV</span> View CV{" "}
                     <ArrowUpRight aria-hidden="true" size={19} />
                   </a>

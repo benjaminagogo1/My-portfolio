@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: portfolioTitle,
     template: "%s | Benjamin Agogo",
   },
-  description: `${identity.title} building useful technology across healthcare, agriculture, and language preservation. Explore Nurse.ng, HMSI-API, Agro-Shield, and Igede Language SI.`,
+  description: `${identity.title} working across full-stack development, backend APIs, and intelligent systems. Explore practical engineering work in Nurse.ng, HMSI-API, Agro-Shield, and Igede Language SI.`,
   applicationName: "Benjamin Agogo Portfolio",
   authors: [{ name: identity.name, url: identity.github }],
   keywords: [

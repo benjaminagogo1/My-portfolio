@@ -1,13 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  BrainCircuit,
-  Code2,
-  Cpu,
-  HeartPulse,
-  ArrowUpRight,
-} from "lucide-react";
+import { BrainCircuit, Code2, Cpu, HeartPulse } from "lucide-react";
 
 const fields = [
   {
@@ -74,9 +68,6 @@ export function SystemVisual() {
       <div className="visual-topline">
         <span>
           <span className="tiny-dot" /> THE CONNECTED SYSTEM
-        </span>
-        <span>
-          FIG. 01 <ArrowUpRight aria-hidden="true" size={12} />
         </span>
       </div>
       <div className="globe-wrap">
